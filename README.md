@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Proshar – Modern Pharmacy Management Landing Page
+
+A production-ready, dark-themed landing page for a pharmacy management platform built with Next.js 14+, TypeScript, Tailwind CSS, GSAP, Framer Motion, and Locomotive Scroll.
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript (strict mode)
+- **Styling:** Tailwind CSS 4
+- **Animations:** GSAP (ScrollTrigger), Framer Motion, Locomotive Scroll
+- **UI:** Lucide React icons, CVA (class-variance-authority), clsx, tailwind-merge
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+### Lint
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── app/              # Next.js App Router (layout, page, globals.css)
+├── components/
+│   ├── sections/     # Landing page sections (Hero, Features, Stats, etc.)
+│   ├── ui/           # Reusable UI (Button, Card, Container, GradientText)
+│   ├── Header.tsx
+│   ├── SmoothScroll.tsx
+│   └── ClientProviders.tsx
+├── hooks/            # useScrollAnimations, useMediaQuery
+├── lib/              # utils, constants
+└── types/            # TypeScript interfaces
+```
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Hero:** Animated headline (GSAP), gradient text, CTA buttons, dashboard mockup, trust badges
+- **Features Grid:** 6 feature cards with icons, hover effects, scroll-triggered stagger
+- **Stats:** Three stat cards, dashboard mockup, CTA
+- **Feature Details:** 4 detailed cards with bullet lists
+- **Design Showcase:** Side-by-side layout, mobile mockup, capability highlights
+- **Interface Features:** Dashboard mockup + feature list with gradient icons
+- **Social Proof:** Stats, testimonial carousel, star ratings
+- **FAQ:** Accordion with Framer Motion
+- **CTA:** Gradient headline, Start Free Trial / Talk to Sales
+- **Footer:** Top strip CTA, multi-column links, app badges, social icons
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Design
+
+- **Colors:** Dark background (#0a0a0a), primary purple/pink gradients, orange accent for CTAs
+- **Effects:** Glassmorphism, card glow, gradient text, scroll progress bar in header
+- **Accessibility:** Reduced motion support, ARIA labels, keyboard navigation, semantic HTML
+
+## Browser Support
+
+- Chrome/Edge, Firefox, Safari (latest 2 versions)
+- Mobile Safari, Chrome Mobile
+
+## License
+
+Private – Proshar. All rights reserved.
