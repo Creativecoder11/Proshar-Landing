@@ -264,7 +264,7 @@ export function Navbar() {
           className="text-2xl font-bold tracking-tight text-white flex items-center gap-2"
         >
           <Image
-            src="/assets/logo/ProsharLogo.svg"
+            src="/assets/logo/Proshar White Logo.svg"
             alt="Proshar Logo"
             width={120}
             height={40}

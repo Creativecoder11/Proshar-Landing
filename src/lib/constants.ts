@@ -1,32 +1,32 @@
 export const FEATURES = [
   {
-    title: 'Digital Ledger (হিসেব খাতা)',
-    description: 'Track income and expenses with full Bengali language support. View real-time financial data.',
+    title: 'Everyday Essentials',
+    description: 'Keep your shelves full with the products your customers ask for every day. From staples to new finds.',
     icon: 'ledger',
   },
   {
-    title: 'Wholesaler Management',
-    description: 'Manage all suppliers in one place. Track purchases, payments, and outstanding dues with detailed ledgers.',
+    title: 'Trusted Origins',
+    description: 'Authentic products from verified brands. No doubt, just genuine quality for your customers.',
     icon: 'wholesaler',
   },
   {
-    title: 'Monthly Reports',
-    description: 'Generate comprehensive reports with interactive charts. Export as PDF or CSV for accounting purposes.',
+    title: 'Fair Pricing',
+    description: 'Competitive rates that let you earn a fair margin on every sale. Sourcing shouldn\'t be expensive.',
     icon: 'monthlyreports',
   },
   {
-    title: 'Inventory Control',
-    description: 'Track income and expenses with full Bengali language support. View real-time financial data.',
+    title: 'Quick Restocking',
+    description: 'See what\'s available instantly. No guessing, no waiting. Restock in minutes, not hours.',
     icon: 'inventory',
   },
   {
-    title: 'Order Processing',
-    description: 'Track income and expenses with full Bengali language support. View real-time financial data.',
+    title: 'Business Support',
+    description: 'Tools that help you manage your shop\'s finances and growth. We support your business journey.',
     icon: 'orderprocessing',
   },
   {
-    title: 'Analytics & Insights',
-    description: 'Track income and expenses with full Bengali language support. View real-time financial data.',
+    title: 'Market Insights',
+    description: 'Know what\'s selling in other lanes and keep your offer fresh. Stay ahead of local trends.',
     icon: 'analytics',
   },
 ];
@@ -108,43 +108,47 @@ export const SOCIAL_STATS = [
 export const TESTIMONIALS = [
   {
     quote: 'Proshar transformed our pharmacy operations. The intuitive interface and powerful features have saved us countless hours.',
-    name: 'Sarah Chen',
-    role: 'Pharmacy Manager',
+    name: 'Khalid Hossain',
+    role: 'Owner, Khalid Pharmacy',
     rating: 5,
-    image: '/images/avatar-1.jpg',
+    image: '/assets/logo/testimonial -3.jpg',
   },
   {
-    quote: 'The best investment we\'ve made for our pharmacy. Inventory management and e-prescribing are now seamless.',
-    name: 'Michael Rodriguez',
-    role: 'Owner, Community Pharmacy',
+    quote: 'Managing suppliers used to be a nightmare. Now I can track all payments, dues, and purchase history in one place. The system saves me at least 10 hours every week!',
+    name: 'Nafis Samee Raidah',
+    role: 'Owner, DOHS Medicine',
     rating: 5,
-    image: '/images/avatar-2.jpg',
+    image: '/assets/logo/testimonial -2.jpg',
   },
   {
-    quote: 'Outstanding platform with exceptional support. Our prescription accuracy has improved significantly.',
-    name: 'Emily Watson',
-    role: 'Clinical Pharmacist',
+    quote: 'I run 3 pharmacy locations and Proshar handles them all seamlessly. The inventory alerts prevent stock-outs and the financial insights help me plan better. ',
+    name: 'Mahady Hasan',
+    role: 'Owner, Dhaka Pharmacy',
     rating: 5,
-    image: '/images/avatar-3.jpg',
+    image: '/assets/logo/testimonial -1.jpg',
   },
 ];
 
 export const FAQ_ITEMS = [
   {
-    question: 'How does Proshar ensure data security?',
+    question: '01. What is Proshar?',
     answer: 'Proshar implements industry-leading security measures including end-to-end encryption, HIPAA compliance, SOC 2 Type II certification, and regular security audits. Your patient data is protected with the highest standards.',
   },
   {
-    question: 'How does Proshar help with inventory control?',
+    question: '02. Who can use Proshar?',
     answer: 'Our inventory module provides real-time tracking, automated reorder points, expiration alerts, and batch tracing. You can set custom thresholds and receive notifications when stock runs low.',
   },
   {
-    question: 'Can I integrate Proshar with my existing EHR?',
+    question: '03. How do retailers add wholesalers?',
     answer: 'Yes! Proshar offers integrations with major EHR systems. Our team will work with you to ensure a smooth migration and integration with your current workflows.',
   },
   {
-    question: 'What kind of support do you offer?',
+    question: '04. Can I track orders and payments on Proshar?',
     answer: 'We provide 24/7 customer support via phone, email, and live chat. Our dedicated success team offers onboarding, training, and ongoing assistance to ensure you get the most from Proshar.',
+  },
+  {
+    question: '05. Is Proshar available on mobile?',
+    answer: 'Yes, Proshar is available on both iOS and Android devices. You can download the app from the App Store or Google Play Store.',
   },
 ];
 

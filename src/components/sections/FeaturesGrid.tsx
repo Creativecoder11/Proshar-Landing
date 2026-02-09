@@ -61,26 +61,24 @@ export default function FeaturesGrid() {
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-zinc-700/50">
               <span className="text-lg">🍵</span>
               <span className="text-white text-sm font-medium tracking-wide">
-                Powerful Features
+                Practical Tools
               </span>
             </div>
           </div>
 
           <h1 className="text-white mb-6 leading-tight">
             <div className="text-3xl md:text-6xl font-bold mb-2">
-              Everything You
+              The Backbone of
             </div>
             <div className="text-3xl md:text-6xl font-semibold">
-              Need to Run{' '}
               <span className="text-orange-600 italic font-playfair">
-                Your Pharmacy
+                Your Business
               </span>
             </div>
           </h1>
 
           <p className="text-white/80 text-base md:text-xl max-w-4xl mx-auto">
-            Comprehensive tools designed specifically for pharmacy management in
-            Bangladesh
+            Practical tools designed for retailers who keep products accessible in every lane.
           </p>
         </div>
 

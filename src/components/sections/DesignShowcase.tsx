@@ -49,7 +49,7 @@ export default function DesignShowcase() {
             </div>
 
             <h1 className="text-white mb-6 leading-tight">
-              <div className="text-3xl md:text-6xl font-bold mb-2">Smarter B2B </div>
+              <div className="text-3xl md:text-6xl font-bold mb-2">Smarter B2B</div>
               <div className="text-3xl md:text-6xl font-semibold">
                 Medicine{' '}
                 <span className="text-orange-600 italic font-playfair">Platform</span>
