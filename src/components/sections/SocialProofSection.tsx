@@ -66,7 +66,7 @@ export default function SocialProofSection() {
   const statsInView = useInView(statsRef, { once: true, margin: '-150px' });
 
   return (
-    <section className="py-24">
+    <section className="py-24" id='testimonials'>
       <Container>
         {/* Heading */}
         <div className="max-w-7xl w-full text-center">
@@ -74,16 +74,15 @@ export default function SocialProofSection() {
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-zinc-700/50">
               <span className="text-lg">🍵</span>
               <span className="text-white text-sm font-medium tracking-wide">
-                Powerful Features
+                Testimonials
               </span>
             </div>
           </div>
 
           <h1 className="text-white mb-6 leading-tight">
-            <div className="text-3xl md:text-6xl font-bold mb-2">Everything You</div>
+            <div className="text-3xl md:text-6xl font-bold mb-2">Stories from our</div>
             <div className="text-3xl md:text-6xl font-semibold">
-              Need to Run{' '}
-              <span className="text-orange-600 italic font-playfair">Your Pharmacy</span>
+              <span className="text-orange-600 italic font-playfair">Partners</span>
             </div>
           </h1>
 

@@ -36,16 +36,18 @@ export default function CTASection() {
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-zinc-700/50">
               <span className="text-lg">🍵</span>
               <span className="text-white text-sm font-medium tracking-wide">
-                Limited Time Offer
+                Join Proshar
               </span>
             </div>
           </div>
           <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
-            Ready to Transform <br /> Your Pharmacy?
+            Your All-in-One B2B
           </h2>
+          <div className="text-3xl md:text-6xl font-semibold">
+            <span className="text-orange-600 italic font-playfair">Sourcing Partner</span>
+          </div>
           <p className="mt-6 text-lg text-zinc-400 sm:text-xl">
-            Join 1000+ pharmacies already using Proshar. Start your free 30-day trial
-            today—no credit card required.
+            From neighborhood shops to city stores, retailers trust Proshar for their everyday stock. Accessible, affordable, and authentic.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>

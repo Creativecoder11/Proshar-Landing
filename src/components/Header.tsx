@@ -343,7 +343,7 @@ export function Navbar() {
           style={{ pointerEvents: mode === "expanded" ? "auto" : "none" }}
           className="hidden md:flex"
         >
-          <Button className="rounded-[8px] w-[132px] bg-white text-[#808080] hover:bg-gray-50 border border-[#e8e8e8] font-semibold text-sm h-[44px]">
+          <Button  className="rounded-[8px] w-[132px] bg-white text-[#808080] hover:bg-gray-50 border border-[#e8e8e8] font-semibold text-sm h-[44px]">
             Get Started
           </Button>
         </motion.div>

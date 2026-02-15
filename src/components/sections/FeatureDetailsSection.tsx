@@ -1,67 +1,71 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { easeInOut, motion, useInView } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Clock, TrendingUp, Shield, Wallet } from 'lucide-react';
 import Image from 'next/image';
+import TextAnimation from '../ui/TextAnimation';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const BENEFITS = [
   {
     icon: '/assets/icon/benefits4.svg',
-    title: 'Save Valuable Time',
-    metric: '10+ Hours Saved Weekly',
+    title: 'Simplified Sourcing',
+    metric: 'Save Time Every Week',
     description:
-      'Automate repetitive tasks like ledger entries, inventory tracking, and report generation. Focus on growing your business instead of paperwork.',
-    features: ['Automated calculations', 'Quick data entry', 'Instant report generation'],
+      "Sourcing shouldn't be time-consuming. From discovery to delivery, handle everything in one intuitive dashboard.",
+    features: ['Easy reordering', 'Quick entry', 'Instant updates'],
   },
   {
     icon: '/assets/icon/benefits3.svg',
-    title: 'Increase Your Profits',
-    metric: '35% Average Growth',
+    title: 'Fair Margins',
+    metric: 'Grow Your Business',
     description:
-      'Make smarter purchasing decisions with real-time inventory insights. Reduce waste and optimize your stock levels for maximum profitability.',
-    features: ['Better inventory control', 'Reduced waste', 'Optimized purchasing'],
+      'Stop overpaying for stock. Access competitive rates that let you earn a fair profit on every product you sell.',
+    features: ['Competitive pricing', 'Reduced costs', 'Better buying'],
   },
   {
     icon: '/assets/icon/benefits2.svg',
-    title: 'Eliminate Human Errors',
-    metric: '99.9% Accuracy',
+    title: 'Reliable Delivery',
+    metric: 'On-Time Arrival',
     description:
-      'Say goodbye to manual calculation mistakes and missing transactions. Digital records ensure every entry is accurate and traceable.',
-    features: ['Automatic calculations', 'Error-free ledgers', 'Complete audit trail'],
+      'We deliver products directly to you. Track every shipment from the warehouse to your shelf with precision.',
+    features: ['Real-time tracking', 'Secure handling', 'Full visibility'],
   },
   {
     icon: '/assets/icon/benefits1.svg',
-    title: 'Better Financial Control',
-    metric: 'Real-Time Visibility',
+    title: 'Total Control',
+    metric: 'Manage It All',
     description:
-      'Know your exact financial position at any moment. Track receivables, payables, and cash flow with complete transparency.',
-    features: ['Live financial dashboard', 'Payment tracking', 'Due date reminders'],
+      'Manage all your supplier invoices, payments, and orders in one place. Simplify your back-office and focus on selling.',
+    features: ['Order dashboard', 'Unified payments', 'Smart reminders'],
   },
 ];
 
-const CheckIcon = () => (
-  <svg
-    width="16"
-    height="16"
-    viewBox="0 0 16 16"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <circle cx="8" cy="8" r="8" fill="currentColor" fillOpacity="0.2" />
-    <path
-      d="M5 8L7 10L11 6"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1.5,
+      ease: easeInOut,
+    },
+  },
+};
+
+const buttonGroup = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 1.2,
+    },
+  },
+};
 
 export default function BenefitsSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -98,27 +102,45 @@ export default function BenefitsSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-7xl w-full text-center">
-          <div className="flex justify-center mb-4">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-zinc-700/50">
-              <span className="text-lg">🍵</span>
-              <span className="text-white text-sm font-medium tracking-wide">
-                Powerful Features
-              </span>
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <div className="flex justify-center mb-4">
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-zinc-700/50">
+                <span className="text-lg">
+                  <Image
+                    src="/assets/icon/badgeicon3.svg"
+                    alt="Star Icon"
+                    width={20}
+                    height={20}
+                  />
+                </span>
+                <span className="text-white text-sm font-medium tracking-wide">
+                  Powerful Features
+                </span>
+              </div>
             </div>
-          </div>
-
-          <h1 className="text-white mb-6 leading-tight">
-            <div className="text-3xl md:text-6xl font-bold mb-2">Everything You</div>
-            <div className="text-3xl md:text-6xl font-semibold">
-              Need to Run{' '}
-              <span className="text-orange-600 italic font-playfair">Your Pharmacy</span>
-            </div>
-          </h1>
-
-          <p className="text-white/80 text-base md:text-xl max-w-4xl mx-auto">
-            Comprehensive tools designed specifically for pharmacy management in
-            Bangladesh
-          </p>
+          </motion.div>
+          <TextAnimation type="words" delay={1} duration={1}>
+            <h1 className="text-white mb-6 leading-tight">
+              <div className="text-3xl md:text-6xl font-bold mb-2">Everything You</div>
+              <div className="text-3xl md:text-6xl font-semibold">
+                Need to Run{' '}
+                <span className="text-orange-600 italic font-playfair">
+                  Your Pharmacy
+                </span>
+              </div>
+            </h1>
+          </TextAnimation>
+          <TextAnimation type="lines" delay={1} duration={1}>
+            <p className="text-white/80 text-base md:text-xl max-w-4xl mx-auto">
+              Comprehensive tools designed specifically for pharmacy management in
+              Bangladesh
+            </p>
+          </TextAnimation>
         </div>
 
         {/* Benefits Grid */}

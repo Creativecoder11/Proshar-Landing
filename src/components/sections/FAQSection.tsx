@@ -27,16 +27,15 @@ export default function FAQSection() {
                 <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-zinc-700/50">
                   <span className="text-lg">🍵</span>
                   <span className="text-white text-sm font-medium tracking-wide">
-                    About Proshar
+                    Need Help?
                   </span>
                 </div>
               </div>
 
               <h1 className="text-white mb-6 leading-tight">
-                <div className="text-3xl md:text-6xl font-bold mb-2">Smarter B2B </div>
-                <div className="text-3xl md:text-6xl font-semibold">
-                  Medicine{' '}
-                  <span className="text-orange-600 italic font-playfair">Platform</span>
+                <div className="text-3xl md:text-6xl font-bold mb-2">Common</div>
+                <div className="text-3xl md:text-6xl font-semibold">                  
+                  <span className="text-orange-600 italic font-playfair">Questions</span>
                 </div>
               </h1>
 
@@ -72,7 +71,7 @@ export default function FAQSection() {
                     size="lg"
                     className="bg-[#FF5E32] hover:bg-[#FF5E31]/90  text-white rounded-[12px] text-lg font-semibold h-[56px] px-8 w-full sm:w-full"
                   >
-                    Join Proshar
+                    Contact Support
                   </Button>
                 </div>
               </motion.div>

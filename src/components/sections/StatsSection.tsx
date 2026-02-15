@@ -1,12 +1,13 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { easeInOut, motion, useInView } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import Image from 'next/image';
+import TextAnimation from '../ui/TextAnimation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +18,28 @@ interface StatCardProps {
   delay?: number;
 }
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1.5,
+      ease: easeInOut,
+    },
+  },
+};
+
+const buttonGroup = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 1.2,
+    },
+  },
+};
+
 const StatCard = ({ value, label, suffix = '', delay = 0 }: StatCardProps) => {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
@@ -26,7 +49,7 @@ const StatCard = ({ value, label, suffix = '', delay = 0 }: StatCardProps) => {
 
   useEffect(() => {
     if (isInView) {
-      const duration = 2000; // 2 seconds
+      const duration = 1000; // 2 seconds
       const steps = 60;
       const increment = targetValue / steps;
       let current = 0;
@@ -50,7 +73,7 @@ const StatCard = ({ value, label, suffix = '', delay = 0 }: StatCardProps) => {
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay }}
+      transition={{ duration: 1, delay }}
       className="stat-card"
     >
       <div className="text-2xl md:text-5xl font-semibold text-white mb-2">
@@ -81,7 +104,7 @@ export default function StatsSection() {
         },
         x: 60,
         opacity: 0,
-        duration: 0.8,
+        duration: 2,
         ease: 'power3.out',
       });
     }, statsRef);
@@ -95,43 +118,65 @@ export default function StatsSection() {
         <div className="grid items-center max-w-7xl w-full gap-12 lg:grid-cols-2">
           {/* Left Section */}
           <div className="">
-            <div className="flex justify-start mb-4">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-zinc-700/50">
-                <span className="text-lg">🍵</span>
-                <span className="text-white text-sm font-medium tracking-wide">
-                  About Proshar
-                </span>
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.5 }}
+            >
+              <div className="flex justify-start mb-4">
+                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-zinc-700/50">
+                  <span className="text-lg">
+                    <Image
+                      src="/assets/icon/badgeicon2.svg"
+                      alt="Interface Icon"
+                      width={20}
+                      height={20}
+                    />
+                  </span>
+                  <span className="text-white text-sm font-medium tracking-wide">
+                    About Proshar
+                  </span>
+                </div>
               </div>
-            </div>
+            </motion.div>
 
-            <h1 className="text-white mb-6 leading-tight">
-              <div className="text-3xl md:text-6xl font-bold mb-2">Smarter B2B </div>
-              <div className="text-3xl md:text-6xl font-semibold">
-                Medicine{' '}
-                <span className="text-orange-600 italic font-playfair">Platform</span>
-              </div>
-            </h1>
+            <TextAnimation type="words" delay={1} duration={1}>
+              <h1 className="text-white mb-6 leading-tight">
+                <div className="text-3xl md:text-6xl font-bold mb-2">
+                  The Smartest Way
+                </div>
+                <div className="text-3xl md:text-6xl font-semibold">
+                  to{' '}
+                  <span className="text-orange-600 italic font-playfair">
+                    Source Products
+                  </span>
+                </div>
+              </h1>
+            </TextAnimation>
 
-            <p className="text-white text-base md:text-xl max-w-4xl mx-auto">
-              Proshar simplifies B2B medicine distribution, connecting retailers with
-              wholesalers, streamlining orders, inventory management, and financial
-              tracking through a unified platform.
-            </p>
+            <TextAnimation type="lines" delay={1} duration={1}>
+              <p className="text-white text-base md:text-xl max-w-4xl mx-auto">
+                Proshar is your all-in-one B2B sourcing partner. We connect you directly
+                with top wholesalers for the best pricing and delivery. Practical,
+                efficient, and built for your business.
+              </p>
+            </TextAnimation>
 
             {/* Stats Grid */}
             <div ref={statsRef} className="grid grid-cols-3 gap-8 my-8">
               <div className="relative">
-                <StatCard value="100" label="Transparency" suffix="%" delay={0.1} />
+                <StatCard value="100" label="Transparency" suffix="%" delay={1} />
                 <div className="absolute -right-4 top-0 bottom-0 w-px bg-white/20 hidden md:block" />
               </div>
 
               <div className="relative">
-                <StatCard value="5" label="Fasting Delivery" suffix="x" delay={0.2} />
+                <StatCard value="5" label="Fasting Delivery" suffix="x" delay={1} />
                 <div className="absolute -right-4 top-0 bottom-0 w-px bg-white/20 hidden md:block" />
               </div>
 
               <div>
-                <StatCard value="20" label="Saving in Order" suffix="%" delay={0.3} />
+                <StatCard value="20" label="Saving in Order" suffix="%" delay={1} />
               </div>
             </div>
 
@@ -140,7 +185,7 @@ export default function StatsSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 1 }}
             >
               <Button
                 size="lg"
@@ -153,10 +198,14 @@ export default function StatsSection() {
 
           {/* Right Section - Dashboard Image with Glass Border */}
           <div className="relative w-full mx-auto ">
-            {/* Glow behind image */}
-            <div className="absolute -inset-1 bg-gradient-to-t from-indigo-500/10 to-transparent rounded-[20px] blur-xl -z-10" />
-
             {/* Main Glass Container */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 1 }}              
+            >
+            
             <div className="interactive-card relative rounded-[20px] border border-white/10 shadow-2xl bg-white/10 backdrop-blur-sm p-5">
               {/* Inner Image */}
               <div className="relative rounded-xl overflow-hidden bg-[#0B0B0F]">
@@ -170,6 +219,7 @@ export default function StatsSection() {
                 />
               </div>
             </div>
+            </motion.div>
           </div>
         </div>
       </Container>

@@ -132,23 +132,23 @@ export const TESTIMONIALS = [
 export const FAQ_ITEMS = [
   {
     question: '01. What is Proshar?',
-    answer: 'Proshar implements industry-leading security measures including end-to-end encryption, HIPAA compliance, SOC 2 Type II certification, and regular security audits. Your patient data is protected with the highest standards.',
+    answer: 'Proshar is the all-in-one B2B sourcing platform. We connect retailers directly with trusted brands and wholesalers, making sourcing simple, affordable, and efficient.',
   },
   {
-    question: '02. Who can use Proshar?',
-    answer: 'Our inventory module provides real-time tracking, automated reorder points, expiration alerts, and batch tracing. You can set custom thresholds and receive notifications when stock runs low.',
+    question: '02. Who is Proshar for?',
+    answer: 'Proshar is built for every retailer who wants to streamline sourcing—from neighborhood shops to city stores, mini-marts, and professional sellers.',
   },
   {
-    question: '03. How do retailers add wholesalers?',
-    answer: 'Yes! Proshar offers integrations with major EHR systems. Our team will work with you to ensure a smooth migration and integration with your current workflows.',
+    question: '03. How do I join Proshar?',
+    answer: 'Simply create a free account, verify your business, and you\'ll get instant access to our catalog of authentic products and competitive pricing.',
   },
   {
-    question: '04. Can I track orders and payments on Proshar?',
-    answer: 'We provide 24/7 customer support via phone, email, and live chat. Our dedicated success team offers onboarding, training, and ongoing assistance to ensure you get the most from Proshar.',
+    question: '04. Do you handle delivery?',
+    answer: 'Yes. We are more than a platform; we are your supply line. We ensure your products reach your shop safely and on time.',
   },
   {
-    question: '05. Is Proshar available on mobile?',
-    answer: 'Yes, Proshar is available on both iOS and Android devices. You can download the app from the App Store or Google Play Store.',
+    question: '05. Can I manage my stock on the go?',
+    answer: 'Absolutely. Proshar is designed for everyday readiness. Manage orders, track shipments, and check inventory from anywhere.',
   },
 ];
 

@@ -41,7 +41,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     setActiveIndex(Math.min(step, data.length - 1));
   });
 
-  const LINE_RATIO = 0.82; //timeline height
+  const LINE_RATIO = 0.6; //timeline height
 
   // Animated line
   const heightTransform = useTransform(

@@ -1,81 +1,120 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { LayoutDashboard, Monitor, Palette } from 'lucide-react';
+import { easeInOut, motion } from 'framer-motion';
 import { Container } from '@/components/ui/Container';
-import { GradientText } from '@/components/ui/GradientText';
 import Image from 'next/image';
+import TextAnimation from '../ui/TextAnimation';
 
-const HIGHLIGHTS = [
-  {
-    icon: LayoutDashboard,
-    title: 'Intuitive Dashboard',
-    description: 'Clean, organized interface that gets you to insights faster.',
-    features: ['Automated calculations', 'Quick data entry', 'Instant report generation'],
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1.5,
+      ease: easeInOut,
+    },
   },
-  {
-    icon: Monitor,
-    title: 'Responsive Layout',
-    description: 'Works seamlessly on desktop, tablet, and mobile.',
-    features: ['Automated calculations', 'Quick data entry', 'Instant report generation'],
+};
+
+const listVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.08,
+    },
   },
-  {
-    icon: Palette,
-    title: 'Customizable Themes',
-    description: 'Adapt the interface to match your pharmacy branding.',
-    features: ['Automated calculations', 'Quick data entry', 'Instant report generation'],
+};
+
+const listItemVariants = {
+  hidden: { opacity: 0, x: -10 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+      ease: easeInOut,
+    },
   },
+};
+
+const BusinessPoint = [
   {
-    icon: Palette,
-    title: 'Customizable Themes',
-    description: 'Adapt the interface to match your pharmacy branding.',
-    features: ['Automated calculations', 'Quick data entry', 'Instant report generation'],
+    features: [
+      'One-click wholesale ordering',
+      'Shop from any device',
+      'Zero learning curve',
+      'Modern, dark-themed interface',
+    ],
   },
 ];
 
 export default function DesignShowcase() {
   return (
-    <section id="blog" className="py-24">
+    <section id="benefits" className="py-24">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div className="">
-            <div className="flex justify-start mb-4">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-zinc-700/50">
-                <span className="text-lg">🍵</span>
-                <span className="text-white text-sm font-medium tracking-wide">
-                  About Proshar
-                </span>
+          {/* LEFT CONTENT */}
+          <div>
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.5 }}
+            >
+              <div className="flex justify-start mb-4">
+                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-zinc-700/50">
+                  <Image
+                    src="/assets/icon/badgeicon4.svg"
+                    alt="Check Icon"
+                    width={16}
+                    height={16}
+                  />
+                  <span className="text-white text-sm font-medium tracking-wide">
+                    Built for Business
+                  </span>
+                </div>
               </div>
-            </div>
+            </motion.div>
 
-            <h1 className="text-white mb-6 leading-tight">
-              <div className="text-3xl md:text-6xl font-bold mb-2">Smarter B2B</div>
-              <div className="text-3xl md:text-6xl font-semibold">
-                Medicine{' '}
-                <span className="text-orange-600 italic font-playfair">Platform</span>
-              </div>
-            </h1>
+            <TextAnimation type="words" delay={1} duration={1}>
+              <h1 className="text-white mb-6 leading-tight">
+                <div className="text-3xl md:text-6xl font-bold">
+                  A Platform That Works as Hard
+                </div>
+                <div className="text-3xl md:text-6xl font-semibold">
+                  as{' '}
+                  <span className="text-orange-600 italic font-playfair">
+                    You Do
+                  </span>
+                </div>
+              </h1>
+            </TextAnimation>
 
-            <p className="text-white text-base md:text-xl max-w-4xl mx-auto">
-              Proshar simplifies B2B medicine distribution, connecting retailers with
-              wholesalers, streamlining orders, inventory management, and financial
-              tracking through a unified platform.
-            </p>
-            {/* Features List */}
-            <ul className="space-y-3 mt-6">
-              {HIGHLIGHTS[0].features.map((feature, featureIndex) => (
+            <TextAnimation type="lines" delay={1} duration={1}>
+              <p className="text-white text-base md:text-xl max-w-4xl mx-auto">
+                Efficient, not complicated. Proshar is designed to be a practical
+                tool for your daily business needs. Organized systems, not just
+                decorative cues.
+              </p>
+            </TextAnimation>
+
+            {/* FEATURES LIST */}
+            <motion.ul
+              className="space-y-3 mt-6"
+              variants={listVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.5 }}
+            >
+              {BusinessPoint[0].features.map((feature) => (
                 <motion.li
                   key={feature}
+                  variants={listItemVariants}
                   className="grid grid-cols-1 md:grid-cols-2 text-white group/item"
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{
-                    delay: featureIndex * 0.05,
-                    duration: 0.5,
-                  }}
                 >
                   <div className="flex items-center gap-2">
-                    <div className=" text-orange-500 group-hover/item:text-orange-400 transition-colors duration-200">
+                    <div className="text-orange-500 group-hover/item:text-orange-400 transition-colors duration-200">
                       <Image
                         src="/assets/icon/righticon.svg"
                         alt="Check Icon"
@@ -87,19 +126,17 @@ export default function DesignShowcase() {
                   </div>
                 </motion.li>
               ))}
-            </ul>
+            </motion.ul>
           </div>
 
-          <div className="relative w-full mx-auto ">
-            {/* Glow behind image */}
+          {/* RIGHT IMAGE */}
+          <div className="relative w-full mx-auto">
             <div className="absolute -inset-1 bg-gradient-to-t from-indigo-500/10 to-transparent rounded-[20px] blur-xl -z-10" />
 
-            {/* Main Glass Container */}
             <div className="interactive-card relative rounded-[20px] border border-white/10 shadow-2xl bg-white/10 backdrop-blur-sm p-5">
-              {/* Inner Image */}
               <div className="relative rounded-xl overflow-hidden bg-[#0B0B0F]">
                 <Image
-                  src="/assets/impact-image.svg"
+                  src="/assets/BuiltImage.svg"
                   alt="Dashboard Interface"
                   width={1160}
                   height={925}

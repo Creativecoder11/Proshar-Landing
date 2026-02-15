@@ -3,6 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import { useLocomotiveScroll } from "@/components/providers/locomotive-scroll-provider";
+import TextAnimation from "../ui/TextAnimation";
 
 const logos = [
   "mkql63oa-mzpkspp.svg",
@@ -179,9 +180,11 @@ export function CompanyLogos() {
   return (
     <section className="py-12">
       <div className="container mx-auto px-4 text-center">
+        <TextAnimation type="lines" delay={0.5} duration={1.5}>
         <p className="text-3xl  font-semibold text-white mb-8">
           Sourcing From the Best in the Industry
         </p>
+        </TextAnimation>
       </div>
 
       <div ref={viewportRef} className="relative w-full overflow-hidden">

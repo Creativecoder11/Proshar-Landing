@@ -5,18 +5,18 @@ import { Button } from '../ui/Button';
 
 const Footer = () => {
   const quickLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'Features', href: '#' },
-    { name: 'About Us', href: '#' },
-    { name: 'Benefits', href: '#' },
-    { name: 'Testimonials', href: '#' },
+    { name: 'Home', href: '/' },
+    { name: 'Features', href: '#features' },
+    { name: 'About Us', href: '#interface' },
+    { name: 'Benefits', href: '#benefits' },
+    { name: 'Testimonials', href: '#testimonials' },
   ];
 
   const usefulLinks = [
-    { name: 'Partner with Us', href: '#' },
-    { name: 'Become a Wholesaler', href: '#' },
-    { name: 'Privacy and Policy', href: '#' },
-    { name: 'Need Help?', href: '#' },
+    { name: 'Partner with Us', href: '#contact' },
+    { name: 'Become a Wholesaler', href: '#contact' },
+    { name: 'Privacy and Policy', href: '#contact' },
+    { name: 'Need Help?', href: '#contact' },
   ];
 
   const socials = [

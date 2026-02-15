@@ -1,20 +1,17 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { easeInOut, motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 
 import { Container } from '@/components/ui/Container';
 import { FEATURES } from '@/lib/constants';
+import TextAnimation from '../ui/TextAnimation';
 
 gsap.registerPlugin(ScrollTrigger);
 
-/**
- * Icon key → SVG path
- * (FEATURES.icon must match these keys)
- */
 const ICON_MAP: Record<string, string> = {
   analytics: '/assets/icon/features1.svg',
   orderprocessing: '/assets/icon/features2.svg',
@@ -22,6 +19,28 @@ const ICON_MAP: Record<string, string> = {
   monthlyreports: '/assets/icon/features4.svg',
   wholesaler: '/assets/icon/features5.svg',
   ledger: '/assets/icon/features6.svg',
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1.5,
+      ease: easeInOut,
+    },
+  },
+};
+
+const buttonGroup = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 1.2,
+    },
+  },
 };
 
 export default function FeaturesGrid() {
@@ -58,28 +77,40 @@ export default function FeaturesGrid() {
         {/* Header */}
         <div className="max-w-7xl w-full text-center">
           <div className="flex justify-center mb-4">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-zinc-700/50">
-              <span className="text-lg">🍵</span>
-              <span className="text-white text-sm font-medium tracking-wide">
-                Practical Tools
-              </span>
-            </div>
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.6 }}>
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-zinc-700/50">
+                <span className="text-lg">
+                  <Image
+                    src="/assets/icon/badgeicon1.svg"
+                    alt="Star Icon"
+                    width={20}
+                    height={20}
+                  />
+                </span>
+                <span className="text-white text-sm font-medium tracking-wide">
+                  Practical Tools
+                </span>
+              </div>
+            </motion.div>
           </div>
 
-          <h1 className="text-white mb-6 leading-tight">
-            <div className="text-3xl md:text-6xl font-bold mb-2">
-              The Backbone of
-            </div>
-            <div className="text-3xl md:text-6xl font-semibold">
-              <span className="text-orange-600 italic font-playfair">
-                Your Business
-              </span>
-            </div>
-          </h1>
+          <TextAnimation type="words" delay={1} duration={1.5}>
+            <h1 className="text-white mb-6 leading-tight">
+              <div className="text-3xl md:text-6xl font-bold mb-2">The Backbone of</div>
+              <div className="text-3xl md:text-6xl font-semibold">
+                <span className="text-orange-600 italic font-playfair">
+                  Your Business
+                </span>
+              </div>
+            </h1>
+          </TextAnimation>
 
-          <p className="text-white/80 text-base md:text-xl max-w-4xl mx-auto">
-            Practical tools designed for retailers who keep products accessible in every lane.
-          </p>
+          <TextAnimation type='lines' delay={1} duration={1.5}>
+            <p className="text-white/80 text-base md:text-xl max-w-4xl mx-auto">
+              Practical tools designed for retailers who keep products accessible in every
+              lane.
+            </p>
+          </TextAnimation>
         </div>
 
         {/* Grid */}
@@ -98,7 +129,7 @@ export default function FeaturesGrid() {
                 transition={{ duration: 0.2 }}
               >
                 {/* Card with Navbar Glass Effect */}
-                <div 
+                <div
                   className="glass-card h-full p-6 rounded-2xl relative overflow-hidden"
                   style={{
                     background: 'rgba(26, 26, 26, 0.5)',
@@ -115,7 +146,6 @@ export default function FeaturesGrid() {
                     transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                   }}
                 >
-
                   {/* Icon */}
                   <div className="relative mb-12 inline-flex rounded-xl z-10">
                     <Image
