@@ -41,19 +41,19 @@ const listItemVariants = {
 const BusinessPoint = [
   {
     features: [
-      'One-click wholesale ordering',
-      'Shop from any device',
-      'Zero learning curve',
-      'Modern, dark-themed interface',
+      'Bengali language support for local users',
+      'Responsive design works on any device',
+      'Intuitive navigation requires no training',
+      'Dark mode for comfortable viewing',
     ],
   },
 ];
 
-export default function DesignShowcase() {
+export default function Design() {
   return (
-    <section id="benefits" className="py-24">
-      <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+    <section id="benefits" className="w-full py-24">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid items-center gap-14 lg:grid-cols-2">
           {/* LEFT CONTENT */}
           <div>
             <motion.div
@@ -71,7 +71,7 @@ export default function DesignShowcase() {
                     height={16}
                   />
                   <span className="text-white text-sm font-medium tracking-wide">
-                    Built for Business
+                    Intuitive Design
                   </span>
                 </div>
               </div>
@@ -80,28 +80,26 @@ export default function DesignShowcase() {
             <TextAnimation type="words" delay={1} duration={1}>
               <h1 className="text-white mb-6 leading-tight">
                 <div className="text-3xl md:text-6xl font-bold">
-                  A Platform That Works as Hard
+                  Elegant Design.
                 </div>
                 <div className="text-3xl md:text-6xl font-semibold">
-                  as{' '}
+                  Powerful{' '}
                   <span className="text-orange-600 italic font-playfair">
-                    You Do
+                    Capabilities.
                   </span>
                 </div>
               </h1>
             </TextAnimation>
 
             <TextAnimation type="lines" delay={1} duration={1}>
-              <p className="text-white text-base md:text-xl max-w-4xl mx-auto">
-                Efficient, not complicated. Proshar is designed to be a practical
-                tool for your daily business needs. Organized systems, not just
-                decorative cues.
+              <p className="text-[#F7F7F7] text-base max-w-4xl mx-auto">
+                Our clean, modern interface makes complex tasks simple. Manage your entire pharmacy operation with just a few clicks.
               </p>
             </TextAnimation>
 
             {/* FEATURES LIST */}
             <motion.ul
-              className="space-y-3 mt-6"
+              className="space-y-3 mt-10"
               variants={listVariants}
               initial="hidden"
               whileInView="show"
@@ -111,7 +109,7 @@ export default function DesignShowcase() {
                 <motion.li
                   key={feature}
                   variants={listItemVariants}
-                  className="grid grid-cols-1 md:grid-cols-2 text-white group/item"
+                  className="grid grid-cols-1 text-white group/item"
                 >
                   <div className="flex items-center gap-2">
                     <div className="text-orange-500 group-hover/item:text-orange-400 transition-colors duration-200">
@@ -147,7 +145,7 @@ export default function DesignShowcase() {
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

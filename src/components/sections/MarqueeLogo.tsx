@@ -15,7 +15,7 @@ const logos = [
   "mkql63oa-zblxu43.svg",
 ];
 
-export function CompanyLogos() {
+export function MarqueeLogo() {
   const { scroll, isReady } = useLocomotiveScroll();
   const viewportRef = React.useRef<HTMLDivElement>(null);
   const trackRef = React.useRef<HTMLDivElement>(null);
@@ -181,9 +181,9 @@ export function CompanyLogos() {
     <section className="py-12">
       <div className="container mx-auto px-4 text-center">
         <TextAnimation type="lines" delay={0.5} duration={1.5}>
-        <p className="text-3xl  font-semibold text-white mb-8">
-          Sourcing From the Best in the Industry
-        </p>
+          <p className="text-2xl md:text-3xl font-semibold text-white mb-4 md:mb-8">
+            Sourcing From the Best in the Industry
+          </p>
         </TextAnimation>
       </div>
 

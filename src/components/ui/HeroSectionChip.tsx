@@ -36,7 +36,7 @@ export function HeroChip({ className, ...props }: HeroChipProps) {
 
     // Re-check on window resize
     window.addEventListener("resize", checkOverflow);
-    
+
     // Also check after a short delay to account for layout shifts
     const timer = setTimeout(checkOverflow, 500);
 
@@ -94,20 +94,20 @@ export function HeroChip({ className, ...props }: HeroChipProps) {
   return (
     <div
       className={cn(
-        "inline-flex items-center p-[5px] pr-[7px] rounded-full bg-white border border-[#e8e8e8] mb-8 shadow-sm max-w-full",
+        "flex md:inline-flex items-center p-1.25 pr-1.75 rounded-full bg-white border border-[#e8e8e8] mb-8 shadow-sm max-w-full",
         className
       )}
       {...props}
     >
       {/* Static Badge */}
-      <span className="bg-[#FF5E32] text-white text-xs font-medium px-[8px] py-[6px] rounded-full mr-2 shrink-0">
+      <span className="bg-[#FF5E32] text-white text-xs font-medium px-2 py-1.5 rounded-full mr-2 shrink-0">
         All-in-One B2B Sourcing
       </span>
 
       {/* Scrolling Text Container */}
-      <div 
-        ref={containerRef} 
-        className="flex-1 overflow-hidden min-w-0"
+      <div
+        ref={containerRef}
+        className="flex-1 overflow-hidden min-w-0 mt-1 md:mt-0"
       >
         <motion.div
           ref={contentRef}

@@ -3,11 +3,10 @@
 import { motion } from 'framer-motion';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
-import { GradientText } from '@/components/ui/GradientText';
 
 export default function CTASection() {
   return (
-    <section id="contact" className="relative py-24 overflow-hidden">
+    <section id="contact" className="bg-[#070808] relative py-24 overflow-hidden">
       <Container
         className="relative z-10 p-15 rounded-2xl bg-[url('/CTA.svg')] bg-center bg-cover bg-no-repeat glass-card overflow-hidden"
         style={{
@@ -30,39 +29,54 @@ export default function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mx-auto max-w-3xl text-center"
+          className="mx-auto max-w-5xl text-center"
         >
           <div className="flex justify-center mb-4">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-zinc-700/50">
-              <span className="text-lg">🍵</span>
+              <span className="text-lg"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" className="w-5 h-5">
+                <g clipRule="url(#clip0_3215_30283)">
+                  <path fillRule="evenodd" clipRule="evenodd" d="M4.63482 17.3009L3.02513 14.4566L5.46254 13.0454C6.02662 12.7192 6.59415 12.4631 7.21368 12.6644L7.2138 12.6644C8.0065 12.9214 9.29917 13.4695 10.6197 13.7117C10.9369 13.8237 11.1411 14.1404 11.0533 14.4667L11.0533 14.4669C10.9668 14.789 10.6919 14.9456 10.3156 14.9037C9.58937 14.7537 8.91505 14.5332 8.16701 14.3322C7.9998 14.2872 7.82752 14.3865 7.78258 14.5537C7.73764 14.7209 7.83694 14.8932 8.00415 14.9381C8.76925 15.1437 9.45874 15.3683 10.2022 15.5209L10.2026 15.521C10.2068 15.5219 10.2111 15.5227 10.2153 15.5234L10.6243 15.5899L10.6253 15.5901C11.2256 15.6857 11.7765 15.6011 12.3021 15.2948L15.5974 13.3755C16.2704 12.9835 16.765 12.8675 17.1162 12.9411C17.4985 13.0212 17.6438 13.3622 17.6183 13.6713C17.6018 13.8719 17.5189 14.0677 17.3606 14.1651L11.3807 17.8469L11.3804 17.8471C10.9069 18.1393 10.388 18.2055 9.8507 18.0622L5.51333 16.8997C5.47353 16.8891 5.43201 16.8863 5.39115 16.8917C5.3503 16.8971 5.3109 16.9105 5.27521 16.9311L4.63482 17.3009ZM2.32447 14.4925L2.32756 14.4979L4.24321 17.8829L4.24596 17.8877L4.66713 18.6319C4.71333 18.7144 4.68466 18.8197 4.60262 18.866L4.60223 18.8662L3.67874 19.3897C3.59627 19.4358 3.49098 19.4072 3.44466 19.3252L3.44454 19.3249L0.726662 14.5225L0.726544 14.5223C0.679995 14.4402 0.708622 14.3351 0.790387 14.2889L0.790662 14.2888L1.71572 13.7651C1.79772 13.7188 1.90266 13.7484 1.94964 13.8302L1.94988 13.8306L2.32447 14.4925ZM1.59117 14.3425C1.38141 14.3725 1.23658 14.5673 1.26654 14.777C1.29776 14.9868 1.4925 15.1329 1.70227 15.1017C1.91203 15.0717 2.05686 14.8757 2.0269 14.6659C1.99568 14.4562 1.80094 14.3113 1.59117 14.3425ZM8.88207 3.056L13.5198 5.73357V7.84263L14.8647 7.06624V4.95718L10.2269 2.27961L11.7753 1.38561C11.8051 1.3684 11.8389 1.35934 11.8734 1.35934C11.9078 1.35934 11.9416 1.3684 11.9714 1.38561L16.4131 3.95C16.4429 3.96721 16.4676 3.99196 16.4848 4.02177C16.502 4.05158 16.5111 4.08539 16.5111 4.11981V9.24851C16.5111 9.28293 16.502 9.31674 16.4848 9.34655C16.4676 9.37636 16.4429 9.40111 16.4131 9.41832L11.8734 12.0393L7.33368 9.41832C7.30387 9.40111 7.27912 9.37636 7.26191 9.34655C7.2447 9.31674 7.23564 9.28293 7.23564 9.24851V4.11981C7.23564 4.04973 7.27301 3.98502 7.33368 3.95L8.88207 3.056ZM16.1642 2.11534C16.1426 2.19568 16.09 2.26417 16.0179 2.30576C15.9459 2.34735 15.8603 2.35863 15.7799 2.33714C15.6996 2.31558 15.6311 2.263 15.5895 2.19096C15.5479 2.11892 15.5366 2.03331 15.5581 1.95294L15.8615 0.820474C15.8831 0.740125 15.9357 0.671627 16.0077 0.630029C16.0798 0.588432 16.1654 0.577138 16.2458 0.59863C16.3261 0.62021 16.3946 0.672798 16.4362 0.744843C16.4778 0.816887 16.4891 0.902497 16.4676 0.982866L16.1642 2.11534ZM17.7673 5.79596C17.6 5.75098 17.5008 5.57871 17.5458 5.41149C17.5907 5.24428 17.763 5.14506 17.9302 5.19004L19.0635 5.49487C19.2307 5.53985 19.3299 5.71212 19.2849 5.87934C19.24 6.04655 19.0677 6.14577 18.9005 6.10079L17.7673 5.79596ZM17.7274 3.62491C17.6554 3.66646 17.5697 3.67771 17.4894 3.65617C17.409 3.63463 17.3405 3.58207 17.2989 3.51004C17.2573 3.43797 17.2461 3.35235 17.2676 3.272C17.2891 3.19164 17.3417 3.12312 17.4137 3.08149L18.4309 2.49424C18.503 2.45267 18.5886 2.44141 18.6689 2.46294C18.7493 2.48448 18.8178 2.53703 18.8594 2.60906C18.901 2.68113 18.9123 2.76675 18.8907 2.8471C18.8692 2.92746 18.8167 2.99598 18.7446 3.03761L17.7274 3.62491ZM8.18866 1.95294C8.21015 2.03331 8.19886 2.11892 8.15726 2.19096C8.11566 2.263 8.04716 2.31558 7.96682 2.33714C7.88645 2.35863 7.80084 2.34735 7.7288 2.30576C7.65675 2.26417 7.60416 2.19568 7.58258 2.11534L7.27917 0.982866C7.25768 0.902502 7.26897 0.816892 7.31056 0.744846C7.35215 0.672799 7.42063 0.62021 7.50098 0.59863C7.66823 0.553846 7.84043 0.653219 7.88521 0.820474L8.18866 1.95294ZM5.8165 5.19004C5.98372 5.14506 6.15599 5.24428 6.20098 5.41149C6.24596 5.57871 6.1467 5.75098 5.97952 5.79596L4.84627 6.10079C4.67905 6.14577 4.50678 6.04655 4.4618 5.87934C4.41682 5.71212 4.51607 5.53985 4.68329 5.49487L5.8165 5.19004ZM6.33305 3.08149C6.48298 3.16808 6.53447 3.36012 6.44788 3.51004C6.40625 3.58207 6.33773 3.63463 6.25737 3.65617C6.17702 3.6777 6.0914 3.66646 6.01933 3.62491L5.00211 3.03761C4.93008 2.99598 4.87753 2.92746 4.856 2.8471C4.83446 2.76675 4.84572 2.68113 4.88729 2.60906C4.92892 2.53703 4.99744 2.48448 5.0778 2.46294C5.15815 2.44141 5.24377 2.45267 5.31584 2.49424L6.33305 3.08149Z" fill="#FF5E32" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_3215_30283">
+                    <rect width="20" height="20" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              </span>
               <span className="text-white text-sm font-medium tracking-wide">
-                Join Proshar
+                Limited Time Offer
               </span>
             </div>
           </div>
-          <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
-            Your All-in-One B2B
+          <h2 className="text-3xl md:text-5xl font-semibold leading-14">
+            Ready to Transform <br />
+            Your Pharmacy?
           </h2>
-          <div className="text-3xl md:text-6xl font-semibold">
-            <span className="text-orange-600 italic font-playfair">Sourcing Partner</span>
-          </div>
-          <p className="mt-6 text-lg text-zinc-400 sm:text-xl">
-            From neighborhood shops to city stores, retailers trust Proshar for their everyday stock. Accessible, affordable, and authentic.
+
+          <p className="text-[#CFCFCF] mt-4 md:text-xl leading-7 tracking-[-0.4px]">
+            Join 1000+ pharmacies already using Proshar. Start your free 30-day trial today—no credit card required.
           </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button
                 size="lg"
-                className="bg-[#FF5E32] hover:bg-[#FF5E31]/90  text-white rounded-[12px] text-lg font-semibold h-[56px] px-8 w-full sm:w-full"
+                className="flex gap-3 items-center bg-[#FF5E32] hover:bg-[#FF5E31]/90  text-white rounded-lg text-base font-medium px-3.5 py-3 cursor-pointer transition-colors duration-200"
               >
                 Start Free Trial Now
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none" className="w-3.5 h-3.5">
+                  <path d="M0.75 9.08333L9.08333 0.75M9.08333 0.75H0.75M9.08333 0.75V9.08333" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button
                 size="lg"
-                className="bg-white hover:bg-[#3A21C0]  text-black hover:text-white rounded-[12px] text-lg font-semibold h-[56px] px-8 w-full sm:w-full"
+                className="flex gap-3 items-center bg-white hover:bg-[#3A21C0] text-[#3A21C0] hover:text-white rounded-lg text-lg font-semibold px-3.5 py-3 cursor-pointer transition-colors duration-200"
               >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" className="w-5 h-5">
+                  <path d="M11.5267 13.805C11.6988 13.8841 11.8927 13.9021 12.0764 13.8562C12.2602 13.8103 12.4228 13.7032 12.5375 13.5525L12.8334 13.165C12.9886 12.958 13.1899 12.79 13.4213 12.6743C13.6528 12.5586 13.9079 12.4984 14.1667 12.4984H16.6667C17.1087 12.4984 17.5326 12.674 17.8452 12.9865C18.1578 13.2991 18.3334 13.723 18.3334 14.165V16.665C18.3334 17.1071 18.1578 17.531 17.8452 17.8435C17.5326 18.1561 17.1087 18.3317 16.6667 18.3317C12.6884 18.3317 8.87313 16.7514 6.06009 13.9383C3.24704 11.1253 1.66669 7.30995 1.66669 3.33171C1.66669 2.88968 1.84228 2.46575 2.15484 2.15319C2.4674 1.84063 2.89133 1.66504 3.33335 1.66504H5.83335C6.27538 1.66504 6.6993 1.84063 7.01186 2.15319C7.32443 2.46575 7.50002 2.88968 7.50002 3.33171V5.83171C7.50002 6.09045 7.43978 6.34564 7.32407 6.57706C7.20835 6.80849 7.04035 7.00979 6.83335 7.16504L6.44335 7.45754C6.29037 7.57435 6.18254 7.74053 6.13818 7.92783C6.09382 8.11513 6.11567 8.31202 6.20002 8.48504C7.33892 10.7983 9.21204 12.669 11.5267 13.805Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
                 Talk to Sales
               </Button>
             </motion.div>

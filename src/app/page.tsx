@@ -2,30 +2,30 @@ import dynamic from 'next/dynamic';
 import { Navbar } from '@/components/Header';
 import FeaturesGrid from '@/components/sections/FeaturesGrid';
 import { Hero } from '@/components/sections/HeroSection';
-import { CompanyLogos } from '@/components/sections/CompanyLogo';
+import { MarqueeLogo } from '@/components/sections/MarqueeLogo';
 
-const StatsSection = dynamic(
-  () => import('@/components/sections/StatsSection'),
+const AboutSection = dynamic(
+  () => import('@/components/sections/AboutSection'),
   { ssr: true }
 );
 
-const FeatureDetailsSection = dynamic(
-  () => import('@/components/sections/FeatureDetailsSection'),
+const BenefitsSection = dynamic(
+  () => import('@/components/sections/Benefits'),
   { ssr: true }
 );
 
 const DesignShowcase = dynamic(
-  () => import('@/components/sections/DesignShowcase'),
+  () => import('@/components/sections/Design'),
   { ssr: true }
 );
 
 const InterfaceFeatures = dynamic(
-  () => import('@/components/sections/HowProsharWorks'),
+  () => import('@/components/sections/Works'),
   { ssr: true }
 );
 
 const SocialProofSection = dynamic(
-  () => import('@/components/sections/SocialProofSection'),
+  () => import('@/components/sections/Testimonials'),
   { ssr: true }
 );
 
@@ -49,10 +49,10 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
-      <CompanyLogos/>
+      <MarqueeLogo />
       <FeaturesGrid />
-      <StatsSection />
-      <FeatureDetailsSection />
+      <AboutSection />
+      <BenefitsSection />
       <DesignShowcase />
       <InterfaceFeatures />
       <SocialProofSection />

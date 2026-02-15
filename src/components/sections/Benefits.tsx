@@ -67,7 +67,7 @@ const buttonGroup = {
   },
 };
 
-export default function BenefitsSection() {
+export default function Benefits() {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
@@ -98,8 +98,8 @@ export default function BenefitsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-20 md:py-32 overflow-hidden">
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} className="relative py-16 md:py-25 overflow-hidden">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-0">
         {/* Header */}
         <div className="max-w-7xl w-full text-center">
           <motion.div
@@ -119,38 +119,37 @@ export default function BenefitsSection() {
                   />
                 </span>
                 <span className="text-white text-sm font-medium tracking-wide">
-                  Powerful Features
+                  Benefits
                 </span>
               </div>
             </div>
           </motion.div>
           <TextAnimation type="words" delay={1} duration={1}>
-            <h1 className="text-white mb-6 leading-tight">
-              <div className="text-3xl md:text-6xl font-bold mb-2">Everything You</div>
-              <div className="text-3xl md:text-6xl font-semibold">
-                Need to Run{' '}
+            <div className="text-white mb-3 md:mb-6 leading-tight">
+              <h1 className="text-4xl md:text-6xl font-bold">Transform How You <br />
+                Manage Your{' '}
                 <span className="text-orange-600 italic font-playfair">
-                  Your Pharmacy
+                  Pharmacy
                 </span>
-              </div>
-            </h1>
+              </h1>
+            </div>
           </TextAnimation>
           <TextAnimation type="lines" delay={1} duration={1}>
             <p className="text-white/80 text-base md:text-xl max-w-4xl mx-auto">
               Comprehensive tools designed specifically for pharmacy management in
-              Bangladesh
+              Bangladesh.
             </p>
           </TextAnimation>
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6 max-w-7xl mt-12 mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6 max-w-7xl mt-8 md:mt-12 mx-auto">
           {BENEFITS.map((benefit, index) => {
             const Icon = benefit.icon;
             return (
               <div key={benefit.title} className="benefit-card group">
                 <div
-                  className="glass-card h-full p-6 rounded-2xl relative overflow-hidden"
+                  className="glass-card h-full p-4 md:p-6 rounded-2xl relative overflow-hidden"
                   style={{
                     background: 'rgba(26, 26, 26, 0.5)',
                     backdropFilter: 'blur(24px) saturate(150%)',

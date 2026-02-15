@@ -72,7 +72,7 @@ export default function FeaturesGrid() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="features" className="py-24">
+    <section ref={sectionRef} id="features" className="bg-[#070808] py-16 md:py-25">
       <Container>
         {/* Header */}
         <div className="max-w-7xl w-full text-center">
@@ -88,27 +88,26 @@ export default function FeaturesGrid() {
                   />
                 </span>
                 <span className="text-white text-sm font-medium tracking-wide">
-                  Practical Tools
+                  Powerful Features
                 </span>
               </div>
             </motion.div>
           </div>
 
           <TextAnimation type="words" delay={1} duration={1.5}>
-            <h1 className="text-white mb-6 leading-tight">
-              <div className="text-3xl md:text-6xl font-bold mb-2">The Backbone of</div>
-              <div className="text-3xl md:text-6xl font-semibold">
+            <div className="text-white mb-3 leading-tight">
+              <h1 className="text-4xl md:text-6xl font-semibold md:leading-17 ">Everything You <br />
+                Need to Run {' '}
                 <span className="text-orange-600 italic font-playfair">
-                  Your Business
+                  Your Pharmacy
                 </span>
-              </div>
-            </h1>
+              </h1>
+            </div>
           </TextAnimation>
 
           <TextAnimation type='lines' delay={1} duration={1.5}>
             <p className="text-white/80 text-base md:text-xl max-w-4xl mx-auto">
-              Practical tools designed for retailers who keep products accessible in every
-              lane.
+              Comprehensive tools designed specifically for pharmacy management in Bangladesh.
             </p>
           </TextAnimation>
         </div>
@@ -116,7 +115,7 @@ export default function FeaturesGrid() {
         {/* Grid */}
         <div
           ref={cardsRef}
-          className="mx-auto mt-16 grid  grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="mx-auto mt-8 md:mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           {FEATURES.map((feature) => {
             const iconSrc = ICON_MAP[feature.icon];
@@ -130,7 +129,7 @@ export default function FeaturesGrid() {
               >
                 {/* Card with Navbar Glass Effect */}
                 <div
-                  className="glass-card h-full p-6 rounded-2xl relative overflow-hidden"
+                  className="glass-card h-full p-4 md:p-6 rounded-2xl relative overflow-hidden"
                   style={{
                     background: 'rgba(26, 26, 26, 0.5)',
                     backdropFilter: 'blur(24px) saturate(150%)',
@@ -147,25 +146,25 @@ export default function FeaturesGrid() {
                   }}
                 >
                   {/* Icon */}
-                  <div className="relative mb-12 inline-flex rounded-xl z-10">
+                  <div className="relative mb-8 md:mb-12 inline-flex rounded-xl z-10">
                     <Image
                       src={iconSrc}
                       alt={feature.title}
                       width={68}
                       height={68}
-                      className="h-16 w-16 transition-transform duration-300 group-hover:scale-110"
+                      className="w-12 md:w-16 h-12 md:h-16 transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>
 
                   {/* Content */}
                   <div className="relative z-10">
-                    <h3 className="text-2xl font-semibold text-white mb-4">
+                    <h3 className="text-xl md:text-2xl font-semibold text-white mb-3 md:mb-4">
                       {feature.title}
                     </h3>
 
-                    <div className="h-[2px] w-25 bg-[#808080] rounded-full mb-4" />
+                    <div className="h-0.5 w-25 bg-[#808080] rounded-full mb-3 md:mb-4" />
 
-                    <p className="text-white leading-relaxed text-[16px]">
+                    <p className="text-white leading-relaxed text-sm md:text-base">
                       {feature.description}
                     </p>
                   </div>

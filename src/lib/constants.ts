@@ -107,7 +107,7 @@ export const SOCIAL_STATS = [
 
 export const TESTIMONIALS = [
   {
-    quote: 'Proshar transformed our pharmacy operations. The intuitive interface and powerful features have saved us countless hours.',
+    quote: 'Proshar completely transformed how I manage my pharmacy. The Bengali ledger feature is perfect for my team, and the reports help me make better business decisions every day.',
     name: 'Khalid Hossain',
     role: 'Owner, Khalid Pharmacy',
     rating: 5,
@@ -121,7 +121,7 @@ export const TESTIMONIALS = [
     image: '/assets/logo/testimonial -2.jpg',
   },
   {
-    quote: 'I run 3 pharmacy locations and Proshar handles them all seamlessly. The inventory alerts prevent stock-outs and the financial insights help me plan better. ',
+    quote: 'I run 3 pharmacy locations and Proshar handles them all seamlessly. The inventory alerts prevent stock-outs and the financial insights help me plan better.',
     name: 'Mahady Hasan',
     role: 'Owner, Dhaka Pharmacy',
     rating: 5,

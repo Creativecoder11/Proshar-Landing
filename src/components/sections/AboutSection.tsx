@@ -76,7 +76,7 @@ const StatCard = ({ value, label, suffix = '', delay = 0 }: StatCardProps) => {
       transition={{ duration: 1, delay }}
       className="stat-card"
     >
-      <div className="text-2xl md:text-5xl font-semibold text-white mb-2">
+      <div className="text-2xl md:text-5xl font-semibold text-white mb-1 md:mb-2">
         {count}
         {suffix}
       </div>
@@ -85,7 +85,7 @@ const StatCard = ({ value, label, suffix = '', delay = 0 }: StatCardProps) => {
   );
 };
 
-export default function StatsSection() {
+export default function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
 
@@ -113,9 +113,9 @@ export default function StatsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="interface" className="py-24 bg-black">
+    <section ref={sectionRef} id="interface" className="py-16 md:py-25 bg-black">
       <Container>
-        <div className="grid items-center max-w-7xl w-full gap-12 lg:grid-cols-2">
+        <div className="grid items-center max-w-7xl w-full gap-6 md:gap-12 lg:grid-cols-2">
           {/* Left Section */}
           <div className="">
             <motion.div
@@ -142,29 +142,24 @@ export default function StatsSection() {
             </motion.div>
 
             <TextAnimation type="words" delay={1} duration={1}>
-              <h1 className="text-white mb-6 leading-tight">
-                <div className="text-3xl md:text-6xl font-bold mb-2">
-                  The Smartest Way
-                </div>
-                <div className="text-3xl md:text-6xl font-semibold">
-                  to{' '}
+              <div className="text-white mb-4 md:mb-6 leading-tight">
+                <h1 className="text-4xl md:text-6xl font-bold">
+                  Smarter B2B Medicine{' '}
                   <span className="text-orange-600 italic font-playfair">
-                    Source Products
+                    Platform
                   </span>
-                </div>
-              </h1>
+                </h1>
+              </div>
             </TextAnimation>
 
             <TextAnimation type="lines" delay={1} duration={1}>
               <p className="text-white text-base md:text-xl max-w-4xl mx-auto">
-                Proshar is your all-in-one B2B sourcing partner. We connect you directly
-                with top wholesalers for the best pricing and delivery. Practical,
-                efficient, and built for your business.
+                Proshar simplifies B2B medicine distribution, connecting retailers with wholesalers, streamlining orders, inventory management, and financial tracking through a unified platform.
               </p>
             </TextAnimation>
 
             {/* Stats Grid */}
-            <div ref={statsRef} className="grid grid-cols-3 gap-8 my-8">
+            <div ref={statsRef} className="grid grid-cols-3 md:gap-8 my-6 md:my-8">
               <div className="relative">
                 <StatCard value="100" label="Transparency" suffix="%" delay={1} />
                 <div className="absolute -right-4 top-0 bottom-0 w-px bg-white/20 hidden md:block" />
@@ -189,36 +184,36 @@ export default function StatsSection() {
             >
               <Button
                 size="lg"
-                className="bg-[#3a21c0] hover:bg-[#3a21c0]/90 text-white rounded-[12px] text-base font-semibold h-[56px] px-8 w-full sm:w-[172px]"
+                className="bg-[#3a21c0] hover:bg-[#3a21c0]/90 text-white rounded-xl text-base font-semibold px-8 cursor-pointer"
               >
-                Join Proshar
+                Start Free Trial
               </Button>
             </motion.div>
           </div>
 
           {/* Right Section - Dashboard Image with Glass Border */}
-          <div className="relative w-full mx-auto ">
+          <div className="relative w-full mx-auto">
             {/* Main Glass Container */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 1 }}              
+              transition={{ duration: 0.5, delay: 1 }}
             >
-            
-            <div className="interactive-card relative rounded-[20px] border border-white/10 shadow-2xl bg-white/10 backdrop-blur-sm p-5">
-              {/* Inner Image */}
-              <div className="relative rounded-xl overflow-hidden bg-[#0B0B0F]">
-                <Image
-                  src="/assets/impact-image.svg"
-                  alt="Dashboard Interface"
-                  width={1160}
-                  height={925}
-                  className="w-full h-auto object-cover"
-                  priority
-                />
+
+              <div className="interactive-card relative rounded-[20px] border border-white/10 shadow-2xl bg-white/10 backdrop-blur-sm p-2 md:p-5">
+                {/* Inner Image */}
+                <div className="relative rounded-xl overflow-hidden bg-[#0B0B0F]">
+                  <Image
+                    src="/assets/impact-image.svg"
+                    alt="Dashboard Interface"
+                    width={1160}
+                    height={925}
+                    className="w-full h-auto object-cover"
+                    priority
+                  />
+                </div>
               </div>
-            </div>
             </motion.div>
           </div>
         </div>

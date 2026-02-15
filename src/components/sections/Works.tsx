@@ -21,34 +21,34 @@ const fadeUp = {
 const STEPS = [
   {
     number: '01',
-    title: 'Join Proshar',
+    title: 'Join as a Retailer',
     description:
-      "Create your account and verify your shop. It's simple and fast. Join a network of smart retailers sourcing better.",
+      "Create your retailer account on Proshar to start managing medicine sourcing, orders, and finances from one platform.",
     color: 'from-pink-500 to-pink-600',
     bgColor: 'bg-pink-500',
     dotColor: 'bg-orange-500',
   },
   {
     number: '02',
-    title: 'Compare & Pick',
+    title: 'Add Wholesaler',
     description:
-      'Browse products from top wholesalers. Compare pricing and pick the best deals instantly. No more calling around.',
+      'Connect with approved wholesalers to view their live inventories, product availability, pricing, and updated stock details instantly.',
     color: 'from-purple-500 to-purple-600',
     bgColor: 'bg-purple-500',
     dotColor: 'bg-gray-400',
   },
   {
     number: '03',
-    title: 'Direct Delivery',
+    title: 'Order & Track',
     description:
-      'Order with a click. Proshar delivers products directly to your store, so you can focus on selling to your customers.',
+      'Place medicine orders, monitor delivery status, track invoices, payments, and gain complete financial visibility in real time.',
     color: 'from-green-500 to-green-600',
     bgColor: 'bg-green-500',
     dotColor: 'bg-gray-400',
   },
 ];
 
-export default function HowProsharWorks() {
+export default function Works() {
   return (
     <section className="py-24 bg-black relative overflow-hidden">
       {/* Background effects */}
@@ -66,7 +66,7 @@ export default function HowProsharWorks() {
                 src="/assets/WorkImage.svg"
                 alt="Dashboard Interface"
                 width={1160}
-                height={1020}
+                height={1040}
                 className="w-full h-auto object-cover"
                 priority
               />
@@ -92,7 +92,7 @@ export default function HowProsharWorks() {
                       height={16}
                     />
                     <span className="text-white text-sm font-medium tracking-wide">
-                      Built for Business
+                      How Proshar Works
                     </span>
                   </div>
                 </div>
@@ -101,10 +101,10 @@ export default function HowProsharWorks() {
               <TextAnimation type="words" delay={1} duration={1}>
                 <h1 className="text-white mb-6 leading-tight">
                   <div className="text-3xl md:text-6xl font-bold">
-                    Simplifying Your
+                    Beautiful Interface,
                   </div>
-                  <div className="text-3xl md:text-6xl font-semibold">
-                    <span className="text-orange-600 italic font-playfair">Sourcing Process</span>
+                  <div className="text-3xl md:text-6xl font-bold">
+                    <span className="text-orange-600 italic font-playfair">Powerful Features</span>
                   </div>
                 </h1>
               </TextAnimation>
