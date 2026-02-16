@@ -67,7 +67,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         {data.map((item, index) => (
           <div key={index} className="flex flex-col justify-start md:gap-3">
             {/* Sticky Header */}
-            <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full pb-4 md:pb-0">
+            <div className="sticky flex flex-col md:flex-row z-40 items-center self-start max-w-xs lg:max-w-sm md:w-full pb-4 md:pb-0">
               {/* Dot (hide on small screens) */}
               <div className="hidden md:flex h-7 absolute left-5 w-7 rounded-full bg-neutral-700 items-center justify-center">
                 <div

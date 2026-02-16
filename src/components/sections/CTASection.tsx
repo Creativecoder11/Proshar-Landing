@@ -63,7 +63,7 @@ export default function CTASection() {
           <p className="text-[#CFCFCF] mt-4 text-lg md:text-xl leading-7 tracking-[-0.4px]">
             Join 1000+ pharmacies already using Proshar. Start your free 30-day trial today—no credit card required.
           </p>
-          <div className="mt-8 flex md:flex-col items-center justify-center gap-4">
+          <div className="mt-8 flex items-center justify-center gap-4">
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button
                 size="lg"

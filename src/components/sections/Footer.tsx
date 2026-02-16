@@ -76,7 +76,7 @@ const Footer = () => {
           </h2>
           <Button
             size="lg"
-            className="flex gap-3 items-center  bg-[#FF5E32] hover:bg-[#FF5E31]/90 text-white rounded-lg text-sm md:text-base font-medium px-3.5 py-3 md:w-full w-auto cursor-pointer transition-colors duration-200"
+            className="flex gap-3 items-center bg-[#FF5E32] hover:bg-[#FF5E31]/90 text-white rounded-lg text-sm md:text-base font-medium px-3.5 py-3 w-full md:w-auto cursor-pointer transition-colors duration-200"
           >
             Start Free Trial Now
             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
