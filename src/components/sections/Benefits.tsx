@@ -166,22 +166,23 @@ export default function Benefits() {
                   }}
                 >
                   <div className="relative z-10">
-                    <div className="flex">
+                    <div className="flex mb-2 md:mb-3">
                       <div>
                         {/* Icon */}
                         <div className="inline-flex items-center justify-center rounded-xl">
                           <Image
                             src={benefit.icon}
                             alt={benefit.title}
-                            width={68}
+                            width={24}
                             height={24}
+                            className="object-contain w-13 h-13 md:w-17 md:h-17"
                           />
                         </div>
                       </div>
 
                       <div className="ml-4">
                         {/* Title */}
-                        <h3 className="text-xl md:text-2xl font-semibold text-white mb-2 tracking-tight">
+                        <h3 className="text-xl md:text-2xl font-semibold text-white mb-1 md:mb-2 tracking-tight">
                           {benefit.title}
                         </h3>
 
@@ -193,12 +194,12 @@ export default function Benefits() {
                     </div>
 
                     {/* Description */}
-                    <p className="text-white text-sm md:text-base leading-relaxed mb-6">
+                    <p className="text-white text-sm md:text-base leading-relaxed mb-3 md:b-6">
                       {benefit.description}
                     </p>
 
                     {/* Features List */}
-                    <ul className="space-y-3">
+                    <ul className="space-y-1.5 md:space-y-3">
                       {benefit.features.map((feature, featureIndex) => (
                         <motion.li
                           key={feature}
@@ -212,7 +213,7 @@ export default function Benefits() {
                             duration: 0.5,
                           }}
                         >
-                          <div className="flex-shrink-0 mt-1 text-orange-500 group-hover/item:text-orange-400 transition-colors duration-200">
+                          <div className="shrink-0 mt-1 text-orange-500 group-hover/item:text-orange-400 transition-colors duration-200">
                             <Image
                               src="/assets/icon/righticon.svg"
                               alt="Check Icon"

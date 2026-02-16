@@ -48,18 +48,19 @@ const STEPS = [
   },
 ];
 
-export default function Works() {
+export default function HowWorks() {
   return (
-    <section className="py-24 bg-black relative overflow-hidden">
+    <section className="py-16 md:py-25 bg-black relative overflow-hidden">
       {/* Background effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 via-transparent to-purple-500/5 pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-br from-orange-500/5 via-transparent to-purple-500/5 pointer-events-none" />
 
       <Container>
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+        <div className="grid items-center gap-6 md:gap-16 md:grid-cols-2">
           {/* Left side - Dashboard Image */}
 
           {/* Main Glass Container */}
-          <div className="interactive-card relative rounded-[20px] border border-white/10 shadow-2xl bg-white/10 backdrop-blur-sm p-5">
+          <div className="interactive-card relative rounded-[20px] border border-white/10 shadow-2xl bg-white/10 backdrop-blur-sm p-2 md:p-5
+                  order-2 md:order-1">
             {/* Inner Image */}
             <div className="relative rounded-xl overflow-hidden bg-[#0B0B0F]">
               <Image
@@ -74,19 +75,19 @@ export default function Works() {
           </div>
 
           {/* Right side - Content */}
-          <div className="space-y-3 order-1 lg:order-2">
+          <div className="space-y-3 order-1 md:order-2">
             {/* Heading */}
-            <div className="">
+            <div>
               <motion.div
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.5 }}
               >
-                <div className="flex justify-start mb-4">
+                <div className="flex justify-start mb-2 md:mb-4">
                   <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-zinc-700/50">
                     <Image
-                      src="/assets/icon/badgeicon4.svg"
+                      src="/assets/icon/badgeicon5.svg"
                       alt="Check Icon"
                       width={16}
                       height={16}
@@ -99,11 +100,11 @@ export default function Works() {
               </motion.div>
 
               <TextAnimation type="words" delay={1} duration={1}>
-                <h1 className="text-white mb-6 leading-tight">
-                  <div className="text-3xl md:text-6xl font-bold">
+                <h1 className="text-white mb-3 md:mb-6 leading-tight">
+                  <div className="text-4xl md:text-6xl font-bold">
                     Beautiful Interface,
                   </div>
-                  <div className="text-3xl md:text-6xl font-bold">
+                  <div className="text-4xl md:text-6xl font-bold">
                     <span className="text-orange-600 italic font-playfair">Powerful Features</span>
                   </div>
                 </h1>
@@ -111,7 +112,7 @@ export default function Works() {
             </div>
 
             {/* Steps */}
-            <div className="space-y-6 mt-8 relative">
+            <div className="space-y-6 mt-4 md:mt-8 relative">
               {/* Connecting line */}
 
               <Timeline

@@ -1,7 +1,6 @@
 'use client';
 
 import { easeInOut, motion } from 'framer-motion';
-import { Container } from '@/components/ui/Container';
 import Image from 'next/image';
 import TextAnimation from '../ui/TextAnimation';
 
@@ -51,9 +50,9 @@ const BusinessPoint = [
 
 export default function Design() {
   return (
-    <section id="benefits" className="w-full py-24">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid items-center gap-14 lg:grid-cols-2">
+    <section id="benefits" className="w-full py-16 md:py-25">
+      <div className="max-w-7xl mx-auto px-4 md:px-0">
+        <div className="grid items-center gap-6 md:gap-12 lg:grid-cols-[1.5fr_auto]">
           {/* LEFT CONTENT */}
           <div>
             <motion.div
@@ -62,7 +61,7 @@ export default function Design() {
               whileInView="show"
               viewport={{ once: true, amount: 0.5 }}
             >
-              <div className="flex justify-start mb-4">
+              <div className="flex justify-start mb-2 md:mb-4">
                 <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-zinc-700/50">
                   <Image
                     src="/assets/icon/badgeicon4.svg"
@@ -78,12 +77,9 @@ export default function Design() {
             </motion.div>
 
             <TextAnimation type="words" delay={1} duration={1}>
-              <h1 className="text-white mb-6 leading-tight">
-                <div className="text-3xl md:text-6xl font-bold">
-                  Elegant Design.
-                </div>
-                <div className="text-3xl md:text-6xl font-semibold">
-                  Powerful{' '}
+              <h1 className="text-white mb-2 md:mb-6 leading-tight">
+                <div className="text-[34px] md:text-6xl font-bold">
+                  Elegant Design. <br /> Powerful{' '}
                   <span className="text-orange-600 italic font-playfair">
                     Capabilities.
                   </span>
@@ -92,14 +88,14 @@ export default function Design() {
             </TextAnimation>
 
             <TextAnimation type="lines" delay={1} duration={1}>
-              <p className="text-[#F7F7F7] text-base max-w-4xl mx-auto">
+              <p className="text-[#F7F7F7] text-sm md:text-base md:max-w-4xl">
                 Our clean, modern interface makes complex tasks simple. Manage your entire pharmacy operation with just a few clicks.
               </p>
             </TextAnimation>
 
             {/* FEATURES LIST */}
             <motion.ul
-              className="space-y-3 mt-10"
+              className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 mt-4 md:mt-10"
               variants={listVariants}
               initial="hidden"
               whileInView="show"
@@ -109,9 +105,9 @@ export default function Design() {
                 <motion.li
                   key={feature}
                   variants={listItemVariants}
-                  className="grid grid-cols-1 text-white group/item"
+                  className="flex items-center gap-2 text-white group/item"
                 >
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1.5 md:gap-2">
                     <div className="text-orange-500 group-hover/item:text-orange-400 transition-colors duration-200">
                       <Image
                         src="/assets/icon/righticon.svg"
@@ -128,17 +124,16 @@ export default function Design() {
           </div>
 
           {/* RIGHT IMAGE */}
-          <div className="relative w-full mx-auto">
-            <div className="absolute -inset-1 bg-gradient-to-t from-indigo-500/10 to-transparent rounded-[20px] blur-xl -z-10" />
+          <div className="relative w-fit lg:ml-auto">
+            <div className="absolute -inset-1 bg-linear-to-t from-indigo-500/10 to-transparent rounded-[20px] blur-xl -z-10" />
 
-            <div className="interactive-card relative rounded-[20px] border border-white/10 shadow-2xl bg-white/10 backdrop-blur-sm p-5">
-              <div className="relative rounded-xl overflow-hidden bg-[#0B0B0F]">
+            <div className="interactive-card relative rounded-[20px] border border-white/10 shadow-2xl bg-white/10 backdrop-blur-sm p-2 md:p-5 w-fit">
+              <div className="relative w-86 h-80 md:w-115 md:h-115 rounded-xl overflow-hidden bg-[#0B0B0F]">
                 <Image
                   src="/assets/BuiltImage.svg"
                   alt="Dashboard Interface"
-                  width={1160}
-                  height={925}
-                  className="w-full h-auto object-cover"
+                  fill
+                  className="object-cover"
                   priority
                 />
               </div>

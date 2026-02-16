@@ -20,7 +20,7 @@ const DesignShowcase = dynamic(
 );
 
 const InterfaceFeatures = dynamic(
-  () => import('@/components/sections/Works'),
+  () => import('@/components/sections/HowWorks'),
   { ssr: true }
 );
 

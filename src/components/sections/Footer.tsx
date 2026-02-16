@@ -67,16 +67,16 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#0D0D0D] text-white pt-15 pb-10">
+    <footer className="w-full  bg-[#0D0D0D] text-white pt-8 md:pt-15 pb-5 md:pb-10">
       {/* Top CTA Section */}
       <div className="max-w-7xl mx-auto border-b pb-8 border-gray-800">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 mx-4 md:mx-0">
           <h2 className="text-3xl md:text-5xl font-semibold text-[#909090]">
             Get started <span className="italic font-playfair">today</span>
           </h2>
           <Button
             size="lg"
-            className="flex gap-3 items-center  bg-[#FF5E32] hover:bg-[#FF5E31]/90  text-white rounded-lg text-base font-medium px-3.5 py-3 w-full sm:w-auto cursor-pointer transition-colors duration-200"
+            className="flex gap-3 items-center  bg-[#FF5E32] hover:bg-[#FF5E31]/90 text-white rounded-lg text-sm md:text-base font-medium px-3.5 py-3 md:w-full w-auto cursor-pointer transition-colors duration-200"
           >
             Start Free Trial Now
             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
@@ -87,8 +87,8 @@ const Footer = () => {
       </div>
 
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto py-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 justify-end lg:gap-32">
+      <div className="max-w-7xl mx-auto py-4 md:py-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-end md:gap-32 mx-4 md:mx-0">
           {/* Logo Section */}
           <div className="lg:col-span-1">
             <Image
@@ -102,13 +102,13 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-medium mb-4">Quick Links</h4>
-            <ul className="space-y-3">
+            <h4 className="text-base md:text-lg font-medium mb-2 md:mb-4">Quick Links</h4>
+            <ul className="space-y-1.5 md:space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-base text-gray-400 hover:text-[#FF5E32] transition-colors duration-200"
+                    className="text-sm md:text-base text-gray-400 hover:text-[#FF5E32] transition-colors duration-200"
                   >
                     {link.name}
                   </a>
@@ -119,13 +119,13 @@ const Footer = () => {
 
           {/* Useful Links */}
           <div>
-            <h4 className="text-lg font-medium mb-4">Useful Links</h4>
-            <ul className="space-y-3">
+            <h4 className="text-base md:text-lg font-medium mb-2 md:mb-4">Useful Links</h4>
+            <ul className="space-y-1.5 md:space-y-3">
               {usefulLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-base text-gray-400 hover:text-[#FF5E32] transition-colors duration-200"
+                    className="text-sm md:text-base text-gray-400 hover:text-[#FF5E32] transition-colors duration-200"
                   >
                     {link.name}
                   </a>
@@ -136,15 +136,15 @@ const Footer = () => {
 
           {/* Socials */}
           <div>
-            <h4 className="text-lg font-medium mb-4">Socials</h4>
-            <ul className="space-y-3">
+            <h4 className="text-base md:text-lg font-medium mb-2 md:mb-4">Socials</h4>
+            <ul className="space-y-1.5 md:space-y-3">
               {socials.map((social) => {
                 const Icon = social.icon;
                 return (
                   <li key={social.name}>
                     <a
                       href={social.href}
-                      className="flex items-center gap-3 text-gray-400 hover:text-[#FF5E32] transition-colors duration-200 group"
+                      className="flex items-center gap-3 text-sm md:text-base text-gray-400 hover:text-[#FF5E32] transition-colors duration-200 group"
                     >
                       {social.icon}
                       {social.name}
@@ -157,22 +157,22 @@ const Footer = () => {
         </div>
 
         {/* Contact Section */}
-        <div className="border-t border-gray-800 mt-16 pt-12">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-            <div className="flex flex-col sm:flex-row gap-8">
+        <div className="border-t border-gray-800 mt-7 md:mt-16 pt-6 md:pt-12 mx-4 md:mx-0">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 md:gap-8">
+            <div className="w-full flex flex-row gap-8 md:gap-8 space-between md:space-start">
               {/* Phone */}
               <div className="flex items-center gap-3">
-                <div className="bg-gray-800 p-3 rounded-full">
+                <div className="bg-gray-800 p-1.5 md:p-3 rounded-full">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" className="w-4.5 h-4.5" fill="none">
                     <path fillRule="evenodd" clipRule="evenodd" d="M10.3229 5.76686C10.5737 5.76659 10.8222 5.8158 11.054 5.91167C11.2858 6.00755 11.4965 6.14821 11.6739 6.3256C11.8512 6.50298 11.9919 6.71362 12.0878 6.94544C12.1837 7.17725 12.2329 7.42571 12.2326 7.67657C12.2326 7.81297 12.2868 7.94378 12.3832 8.04023C12.4797 8.13667 12.6105 8.19086 12.7469 8.19086C12.8833 8.19086 13.0141 8.13667 13.1105 8.04023C13.207 7.94378 13.2612 7.81297 13.2612 7.67657C13.2618 7.29053 13.1862 6.90816 13.0388 6.55139C12.8914 6.19462 12.6749 5.87045 12.402 5.59748C12.129 5.32451 11.8048 5.1081 11.4481 4.96066C11.0913 4.81322 10.7089 4.73765 10.3229 4.73829C10.1865 4.73829 10.0557 4.79247 9.95922 4.88892C9.86278 4.98536 9.80859 5.11617 9.80859 5.25257C9.80859 5.38897 9.86278 5.51978 9.95922 5.61623C10.0557 5.71267 10.1865 5.76686 10.3229 5.76686Z" fill="white" />
                     <path fillRule="evenodd" clipRule="evenodd" d="M10.3256 3.34266C10.895 3.34033 11.4591 3.45115 11.9853 3.66869C12.5115 3.88622 12.9892 4.20614 13.3907 4.60986C13.7944 5.01137 14.1144 5.48909 14.3319 6.01527C14.5494 6.54146 14.6603 7.10563 14.6579 7.675C14.6573 7.8114 14.7109 7.94246 14.8069 8.03936C14.9029 8.13626 15.0334 8.19105 15.1698 8.19169C15.3062 8.19233 15.4373 8.13875 15.5342 8.04276C15.6311 7.94676 15.6859 7.8162 15.6865 7.6798C15.6898 6.97452 15.5528 6.27561 15.2835 5.62378C15.0141 4.97195 14.6178 4.3802 14.1176 3.883C13.6204 3.38277 13.0286 2.98644 12.3768 2.71709C11.725 2.44774 11.0261 2.31075 10.3208 2.31409C10.1844 2.31473 10.0538 2.36952 9.95783 2.46642C9.86183 2.56332 9.80826 2.69438 9.8089 2.83078C9.80953 2.96717 9.86433 3.09773 9.96122 3.19373C10.0581 3.28973 10.1892 3.3433 10.3256 3.34266ZM9.49998 12.8295C9.56406 12.8678 9.63845 12.8853 9.71288 12.8795C9.78731 12.8737 9.85811 12.845 9.91552 12.7973L11.551 11.4348C11.7519 11.2675 12.0282 11.2222 12.2716 11.3175C13.3359 11.7255 14.4008 11.9271 15.465 11.9189C15.5602 11.917 15.6549 11.934 15.7434 11.9691C15.832 12.0042 15.9127 12.0565 15.9808 12.1231C16.0489 12.1897 16.1031 12.2691 16.1401 12.3569C16.1772 12.4446 16.1964 12.5388 16.1967 12.6341C16.2008 13.4295 16.2008 14.672 16.2008 15.4393C16.2007 15.6234 16.1302 15.8004 16.0037 15.934C15.8772 16.0677 15.7043 16.1478 15.5206 16.158L14.7608 16.1998C7.6081 16.1998 1.80078 10.3925 1.80078 3.2398L1.84261 2.48003C1.85277 2.29629 1.93291 2.12341 2.06656 1.99691C2.2002 1.8704 2.37721 1.79987 2.56124 1.7998H5.39187C5.58164 1.79998 5.76367 1.87507 5.89837 2.00874C6.03307 2.14242 6.10955 2.32387 6.11118 2.51363C6.13175 3.58883 6.33678 4.66403 6.70364 5.73923C6.78661 5.97718 6.73792 6.24118 6.57678 6.43455C6.20032 6.88849 5.5153 7.71066 5.2033 8.08506C5.15514 8.14237 5.12608 8.21328 5.12018 8.2879C5.11428 8.36253 5.13183 8.43713 5.17038 8.50129C6.23888 10.2756 7.7253 11.7616 9.49998 12.8295Z" fill="white" />
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400 mb-0.5">Have a question?</p>
+                  <p className="text-xs md:text-sm text-gray-400 mb-0.5">Have a question?</p>
                   <a
                     href="tel:310-437-2766"
-                    className="text-base font-medium hover:text-orange-500 transition-colors"
+                    className="text-sm md:text-base font-medium hover:text-orange-500 transition-colors"
                   >
                     310-437-2766
                   </a>
@@ -181,17 +181,17 @@ const Footer = () => {
 
               {/* Email */}
               <div className="flex items-center gap-3">
-                <div className="bg-gray-800 p-3 rounded-full">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" className="w-4.5 h-4.5" fill="none">
-                    <path fillRule="evenodd" clipRule="evenodd" d="M10.3229 5.76686C10.5737 5.76659 10.8222 5.8158 11.054 5.91167C11.2858 6.00755 11.4965 6.14821 11.6739 6.3256C11.8512 6.50298 11.9919 6.71362 12.0878 6.94544C12.1837 7.17725 12.2329 7.42571 12.2326 7.67657C12.2326 7.81297 12.2868 7.94378 12.3832 8.04023C12.4797 8.13667 12.6105 8.19086 12.7469 8.19086C12.8833 8.19086 13.0141 8.13667 13.1105 8.04023C13.207 7.94378 13.2612 7.81297 13.2612 7.67657C13.2618 7.29053 13.1862 6.90816 13.0388 6.55139C12.8914 6.19462 12.6749 5.87045 12.402 5.59748C12.129 5.32451 11.8048 5.1081 11.4481 4.96066C11.0913 4.81322 10.7089 4.73765 10.3229 4.73829C10.1865 4.73829 10.0557 4.79247 9.95922 4.88892C9.86278 4.98536 9.80859 5.11617 9.80859 5.25257C9.80859 5.38897 9.86278 5.51978 9.95922 5.61623C10.0557 5.71267 10.1865 5.76686 10.3229 5.76686Z" fill="white" />
-                    <path fillRule="evenodd" clipRule="evenodd" d="M10.3256 3.34266C10.895 3.34033 11.4591 3.45115 11.9853 3.66869C12.5115 3.88622 12.9892 4.20614 13.3907 4.60986C13.7944 5.01137 14.1144 5.48909 14.3319 6.01527C14.5494 6.54146 14.6603 7.10563 14.6579 7.675C14.6573 7.8114 14.7109 7.94246 14.8069 8.03936C14.9029 8.13626 15.0334 8.19105 15.1698 8.19169C15.3062 8.19233 15.4373 8.13875 15.5342 8.04276C15.6311 7.94676 15.6859 7.8162 15.6865 7.6798C15.6898 6.97452 15.5528 6.27561 15.2835 5.62378C15.0141 4.97195 14.6178 4.3802 14.1176 3.883C13.6204 3.38277 13.0286 2.98644 12.3768 2.71709C11.725 2.44774 11.0261 2.31075 10.3208 2.31409C10.1844 2.31473 10.0538 2.36952 9.95783 2.46642C9.86183 2.56332 9.80826 2.69438 9.8089 2.83078C9.80953 2.96717 9.86433 3.09773 9.96122 3.19373C10.0581 3.28973 10.1892 3.3433 10.3256 3.34266ZM9.49998 12.8295C9.56406 12.8678 9.63845 12.8853 9.71288 12.8795C9.78731 12.8737 9.85811 12.845 9.91552 12.7973L11.551 11.4348C11.7519 11.2675 12.0282 11.2222 12.2716 11.3175C13.3359 11.7255 14.4008 11.9271 15.465 11.9189C15.5602 11.917 15.6549 11.934 15.7434 11.9691C15.832 12.0042 15.9127 12.0565 15.9808 12.1231C16.0489 12.1897 16.1031 12.2691 16.1401 12.3569C16.1772 12.4446 16.1964 12.5388 16.1967 12.6341C16.2008 13.4295 16.2008 14.672 16.2008 15.4393C16.2007 15.6234 16.1302 15.8004 16.0037 15.934C15.8772 16.0677 15.7043 16.1478 15.5206 16.158L14.7608 16.1998C7.6081 16.1998 1.80078 10.3925 1.80078 3.2398L1.84261 2.48003C1.85277 2.29629 1.93291 2.12341 2.06656 1.99691C2.2002 1.8704 2.37721 1.79987 2.56124 1.7998H5.39187C5.58164 1.79998 5.76367 1.87507 5.89837 2.00874C6.03307 2.14242 6.10955 2.32387 6.11118 2.51363C6.13175 3.58883 6.33678 4.66403 6.70364 5.73923C6.78661 5.97718 6.73792 6.24118 6.57678 6.43455C6.20032 6.88849 5.5153 7.71066 5.2033 8.08506C5.15514 8.14237 5.12608 8.21328 5.12018 8.2879C5.11428 8.36253 5.13183 8.43713 5.17038 8.50129C6.23888 10.2756 7.7253 11.7616 9.49998 12.8295Z" fill="white" />
+                <div className="bg-gray-800 p-1.5 md:p-3 rounded-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" className="w-4.5 h-4.5">
+                    <path d="M16.0739 4.6609L11.7067 9L16.0739 13.3391C16.1529 13.1741 16.2008 12.9917 16.2008 12.7969V5.20312C16.2008 5.0083 16.1529 4.82591 16.0739 4.6609ZM14.9352 3.9375H3.06641C2.87158 3.9375 2.68919 3.9854 2.52418 4.06434L8.10596 9.61799C8.59949 10.1115 9.40207 10.1115 9.89561 9.61799L15.4774 4.06434C15.3124 3.9854 15.13 3.9375 14.9352 3.9375ZM1.92763 4.6609C1.84868 4.82591 1.80078 5.0083 1.80078 5.20312V12.7969C1.80078 12.9917 1.84868 13.1741 1.92763 13.3391L6.29485 9L1.92763 4.6609Z" fill="white" />
+                    <path d="M11.1094 9.59668L10.4914 10.2147C9.66907 11.037 8.33097 11.037 7.50862 10.2147L6.89066 9.59668L2.52344 13.9358C2.68845 14.0147 2.87084 14.0626 3.06566 14.0626H14.9344C15.1292 14.0626 15.3116 14.0147 15.4766 13.9358L11.1094 9.59668Z" fill="white" />
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400 mb-0.5">Email Us</p>
+                  <p className="text-xs md:text-sm text-gray-400 mb-0.5">Email Us</p>
                   <a
                     href="mailto:support@proshar.com"
-                    className="text-base font-medium hover:text-orange-500 transition-colors"
+                    className="text-sm md:text-base font-medium hover:text-orange-500 transition-colors"
                   >
                     support@proshar.com
                   </a>
@@ -200,7 +200,7 @@ const Footer = () => {
             </div>
 
             {/* Copyright */}
-            <div className="text-gray-400 text-sm">
+            <div className="w-full text-gray-400 text-sm text-center md:text-right mt-2 md:mt-0">
               © {new Date().getFullYear()}. Proshar, All Right Reserved.
             </div>
           </div>
