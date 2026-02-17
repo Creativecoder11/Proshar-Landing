@@ -12,8 +12,8 @@ import { useLocomotiveScroll } from "@/components/providers/locomotive-scroll-pr
 const navItems = [
   { id: "home", label: "Home" },
   { id: "features", label: "Features" },
-  { id: "interface", label: "Interface" },
   { id: "benefits", label: "Benefits" },
+  { id: "interface", label: "Interface" },
   { id: "testimonials", label: "Testimonials" },
 ] as const;
 

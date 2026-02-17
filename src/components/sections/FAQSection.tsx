@@ -9,6 +9,25 @@ import { Button } from '../ui/Button';
 import Image from 'next/image';
 import { fadeInUp } from '@/lib/utils';
 
+const faqContainerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const faqItemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] },
+  },
+};
+
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -92,14 +111,18 @@ export default function FAQSection() {
             </div>
           </motion.div>
 
-          <div className="space-y-4">
+          {/* FAQ items — single parent triggers stagger, no individual whileInView */}
+          <motion.div
+            className="space-y-4"
+            variants={faqContainerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.15 }}
+          >
             {FAQ_ITEMS.map((item, index) => (
               <motion.div
                 key={item.question}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                variants={faqItemVariants}
                 className="glass-card rounded-xl md:rounded-2xl relative overflow-hidden"
                 style={{
                   background: 'rgba(26, 26, 26, 0.5)',
@@ -142,7 +165,7 @@ export default function FAQSection() {
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{
-                        height: { duration: 0.3, ease: [0.4, 0, 0.2, 1] },
+                        height: { duration: 0.3, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] },
                         opacity: { duration: 0.2 },
                       }}
                       className="overflow-hidden"
@@ -155,7 +178,7 @@ export default function FAQSection() {
                 </AnimatePresence>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </Container>
     </section>

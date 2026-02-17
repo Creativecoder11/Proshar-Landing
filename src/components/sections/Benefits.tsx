@@ -1,14 +1,8 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import { easeInOut, motion, useInView } from 'framer-motion';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Clock, TrendingUp, Shield, Wallet } from 'lucide-react';
+import { easeInOut, motion } from 'framer-motion';
 import Image from 'next/image';
 import TextAnimation from '../ui/TextAnimation';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const BENEFITS = [
   {
@@ -45,6 +39,7 @@ const BENEFITS = [
   },
 ];
 
+// Shared fade-up for badge, headline, paragraph
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   show: {
@@ -57,97 +52,128 @@ const fadeUp = {
   },
 };
 
-const buttonGroup = {
+// Top-level: badge → headline → paragraph → grid
+const sectionVariants = {
   hidden: {},
   show: {
     transition: {
       staggerChildren: 0.2,
-      delayChildren: 1.2,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+// Grid: stagger the 4 benefit cards
+const gridVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+// Each benefit card
+const cardVariants = {
+  hidden: { opacity: 0, y: 60 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+    },
+  },
+};
+
+// Feature list items inside each card
+const featureListVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.07,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const featureItemVariants = {
+  hidden: { opacity: 0, x: -10 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.4,
+      ease: easeInOut,
     },
   },
 };
 
 export default function Benefits() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
-
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches;
-
-    if (prefersReducedMotion) return;
-
-    const ctx = gsap.context(() => {
-      const cards = gsap.utils.toArray('.benefit-card');
-
-      gsap.from(cards, {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 70%',
-        },
-        y: 80,
-        opacity: 0,
-        stagger: 0.15,
-        duration: 1,
-        ease: 'power3.out',
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} className="relative py-16 md:py-25 overflow-hidden">
+    <section id="benefits" className="relative py-16 md:py-25 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-0">
-        {/* Header */}
-        <div className="max-w-7xl w-full text-center">
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.5 }}
-          >
-            <div className="flex justify-center mb-4">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-zinc-700/50">
-                <span className="text-lg">
-                  <Image
-                    src="/assets/icon/badgeicon3.svg"
-                    alt="Star Icon"
-                    width={20}
-                    height={20}
-                  />
-                </span>
-                <span className="text-white text-sm font-medium tracking-wide">
-                  Benefits
-                </span>
-              </div>
+
+        {/* Single orchestrating parent */}
+        <motion.div
+          className="w-full"
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {/* STEP 1 — Badge */}
+          <motion.div variants={fadeUp} className="flex justify-center mb-4">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-zinc-700/50">
+              <Image
+                src="/assets/icon/badgeicon3.svg"
+                alt="Star Icon"
+                width={20}
+                height={20}
+              />
+              <span className="text-white text-sm font-medium tracking-wide">
+                Benefits
+              </span>
             </div>
           </motion.div>
-          <TextAnimation type="words" delay={1} duration={1}>
-            <div className="text-white mb-3 md:mb-6 leading-tight">
-              <h1 className="text-4xl md:text-6xl font-bold">Transform How You <br />
-                Manage Your{' '}
-                <span className="text-orange-600 italic font-playfair">
-                  Pharmacy
-                </span>
-              </h1>
-            </div>
-          </TextAnimation>
-          <TextAnimation type="lines" delay={1} duration={1}>
-            <p className="text-white/80 text-base md:text-xl max-w-4xl mx-auto">
-              Comprehensive tools designed specifically for pharmacy management in
-              Bangladesh.
-            </p>
-          </TextAnimation>
-        </div>
 
-        {/* Benefits Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6 max-w-7xl mt-8 md:mt-12 mx-auto">
-          {BENEFITS.map((benefit, index) => {
-            const Icon = benefit.icon;
-            return (
-              <div key={benefit.title} className="benefit-card group">
+          {/* STEP 2 — Headline TextAnimation */}
+          <motion.div variants={fadeUp} className="text-center">
+            <TextAnimation type="words" delay={0.1} duration={1}>
+              <div className="text-white mb-3 md:mb-6 leading-tight">
+                <h1 className="text-4xl md:text-6xl font-bold">
+                  Transform How You <br />
+                  Manage Your{' '}
+                  <span className="text-orange-600 italic font-playfair">
+                    Pharmacy
+                  </span>
+                </h1>
+              </div>
+            </TextAnimation>
+          </motion.div>
+
+          {/* STEP 3 — Paragraph TextAnimation */}
+          <motion.div variants={fadeUp} className="text-center">
+            <TextAnimation type="lines" delay={0.1} duration={1}>
+              <p className="text-white/80 text-base md:text-xl max-w-4xl mx-auto">
+                Comprehensive tools designed specifically for pharmacy management in
+                Bangladesh.
+              </p>
+            </TextAnimation>
+          </motion.div>
+
+          {/* STEP 4 — Benefits grid */}
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6 max-w-7xl mt-8 md:mt-12 mx-auto"
+            variants={gridVariants}
+          >
+            {BENEFITS.map((benefit) => (
+              <motion.div
+                key={benefit.title}
+                className="benefit-card group"
+                variants={cardVariants}
+              >
                 <div
                   className="glass-card h-full p-4 md:p-6 rounded-2xl relative overflow-hidden"
                   style={{
@@ -167,17 +193,15 @@ export default function Benefits() {
                 >
                   <div className="relative z-10">
                     <div className="flex mb-2 md:mb-3">
-                      <div>
-                        {/* Icon */}
-                        <div className="inline-flex items-center justify-center rounded-xl">
-                          <Image
-                            src={benefit.icon}
-                            alt={benefit.title}
-                            width={24}
-                            height={24}
-                            className="object-contain w-13 h-13 md:w-17 md:h-17"
-                          />
-                        </div>
+                      {/* Icon */}
+                      <div className="inline-flex items-center justify-center rounded-xl">
+                        <Image
+                          src={benefit.icon}
+                          alt={benefit.title}
+                          width={24}
+                          height={24}
+                          className="object-contain w-13 h-13 md:w-17 md:h-17"
+                        />
                       </div>
 
                       <div className="ml-4">
@@ -185,7 +209,6 @@ export default function Benefits() {
                         <h3 className="text-xl md:text-2xl font-semibold text-white mb-1 md:mb-2 tracking-tight">
                           {benefit.title}
                         </h3>
-
                         {/* Metric */}
                         <div className="text-base md:text-lg font-semibold text-orange-500">
                           {benefit.metric}
@@ -194,24 +217,20 @@ export default function Benefits() {
                     </div>
 
                     {/* Description */}
-                    <p className="text-white text-sm md:text-base leading-relaxed mb-3 md:b-6">
+                    <p className="text-white text-sm md:text-base leading-relaxed mb-3 md:mb-6">
                       {benefit.description}
                     </p>
 
-                    {/* Features List */}
-                    <ul className="space-y-1.5 md:space-y-3">
-                      {benefit.features.map((feature, featureIndex) => (
+                    {/* Feature items — stagger inside each card */}
+                    <motion.ul
+                      className="space-y-1.5 md:space-y-3"
+                      variants={featureListVariants}
+                    >
+                      {benefit.features.map((feature) => (
                         <motion.li
                           key={feature}
                           className="flex items-start gap-3 text-white group/item"
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={
-                            isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }
-                          }
-                          transition={{
-                            delay: index * 0.1 + featureIndex * 0.05,
-                            duration: 0.5,
-                          }}
+                          variants={featureItemVariants}
                         >
                           <div className="shrink-0 mt-1 text-orange-500 group-hover/item:text-orange-400 transition-colors duration-200">
                             <Image
@@ -224,13 +243,14 @@ export default function Benefits() {
                           <span className="text-sm md:text-base">{feature}</span>
                         </motion.li>
                       ))}
-                    </ul>
+                    </motion.ul>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+
       </div>
     </section>
   );
