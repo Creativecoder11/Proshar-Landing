@@ -4,6 +4,18 @@ import { easeInOut, motion } from 'framer-motion';
 import Image from 'next/image';
 import TextAnimation from '../ui/TextAnimation';
 
+// Parent container that orchestrates the entire left-column sequence
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+// Badge pill fade-up (step 1)
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   show: {
@@ -16,11 +28,13 @@ const fadeUp = {
   },
 };
 
+// Features list wrapper — inherits stagger from parent (step 3)
 const listVariants = {
   hidden: {},
   show: {
     transition: {
       staggerChildren: 0.08,
+      delayChildren: 0.4, // extra delay so it starts after TextAnimation finishes
     },
   },
 };
@@ -50,17 +64,19 @@ const BusinessPoint = [
 
 export default function Design() {
   return (
-    <section id="benefits" className="w-full py-16 md:py-25">
+    <section id="interface" className="w-full py-16 md:py-25">
       <div className="max-w-7xl mx-auto px-4 md:px-0">
         <div className="grid items-center gap-6 md:gap-12 lg:grid-cols-[1.5fr_auto]">
-          {/* LEFT CONTENT */}
-          <div>
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.5 }}
-            >
+
+          {/* LEFT CONTENT — single orchestrating parent */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            {/* STEP 1 — Badge: "Intuitive Design" */}
+            <motion.div variants={fadeUp}>
               <div className="flex justify-start mb-2 md:mb-4">
                 <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5 border border-zinc-700/50">
                   <Image
@@ -76,30 +92,33 @@ export default function Design() {
               </div>
             </motion.div>
 
-            <TextAnimation type="words" delay={1} duration={1}>
-              <h1 className="text-white mb-2 md:mb-6 leading-tight">
-                <div className="text-[34px] md:text-6xl font-bold">
-                  Elegant Design. <br /> Powerful{' '}
-                  <span className="text-orange-600 italic font-playfair">
-                    Capabilities.
-                  </span>
-                </div>
-              </h1>
-            </TextAnimation>
+            {/* STEP 2 — Headline TextAnimation */}
+            <motion.div variants={fadeUp}>
+              <TextAnimation type="words" delay={0.1} duration={1}>
+                <h1 className="text-white mb-2 md:mb-6 leading-tight">
+                  <div className="text-[34px] md:text-6xl font-bold">
+                    Elegant Design. <br /> Powerful{' '}
+                    <span className="text-orange-600 italic font-playfair">
+                      Capabilities.
+                    </span>
+                  </div>
+                </h1>
+              </TextAnimation>
+            </motion.div>
 
-            <TextAnimation type="lines" delay={1} duration={1}>
-              <p className="text-[#F7F7F7] text-sm md:text-base md:max-w-4xl">
-                Our clean, modern interface makes complex tasks simple. Manage your entire pharmacy operation with just a few clicks.
-              </p>
-            </TextAnimation>
+            {/* STEP 3 — Paragraph TextAnimation */}
+            <motion.div variants={fadeUp}>
+              <TextAnimation type="lines" delay={0.2} duration={1}>
+                <p className="text-[#F7F7F7] text-sm md:text-base md:max-w-4xl">
+                  Our clean, modern interface makes complex tasks simple. Manage your entire pharmacy operation with just a few clicks.
+                </p>
+              </TextAnimation>
+            </motion.div>
 
-            {/* FEATURES LIST */}
+            {/* STEP 4 — Features list (last) */}
             <motion.ul
               className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 mt-4 md:mt-10"
               variants={listVariants}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.5 }}
             >
               {BusinessPoint[0].features.map((feature) => (
                 <motion.li
@@ -121,7 +140,7 @@ export default function Design() {
                 </motion.li>
               ))}
             </motion.ul>
-          </div>
+          </motion.div>
 
           {/* RIGHT IMAGE */}
           <div className="relative w-fit lg:ml-auto">
@@ -139,6 +158,7 @@ export default function Design() {
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>

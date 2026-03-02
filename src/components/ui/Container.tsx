@@ -11,7 +11,7 @@ const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
       <div
         ref={ref}
         className={cn(
-          'mx-auto w-full px-4 sm:px-6 lg:px-8',
+          'mx-auto w-full px-4 md:px-0',
           size === 'sm' && 'max-w-3xl',
           size === 'md' && 'max-w-5xl',
           size === 'lg' && 'max-w-7xl',

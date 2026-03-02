@@ -113,7 +113,7 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="interface" className="py-16 md:py-25 bg-black">
+    <section ref={sectionRef} className="py-16 md:py-25 bg-black">
       <Container>
         <div className="grid items-center max-w-7xl w-full gap-6 md:gap-12 lg:grid-cols-2">
           {/* Left Section */}
