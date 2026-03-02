@@ -37,7 +37,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geist.variable} ${playfair.variable}`}>
       <body className="min-h-screen bg-[#0a0a0a] font-geist text-white antialiased">
-        <ClientProviders>{children}</ClientProviders>
+        {/* <ClientProviders>{children}</ClientProviders> */}
+        {children}
       </body>
     </html>
   );

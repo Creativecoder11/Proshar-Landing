@@ -28,7 +28,7 @@ const StatCard = ({ value, label, suffix = '', delay = 0 }: StatCardProps) => {
     if (!isInView) return;
 
     const duration = 2000;
-    const steps = 10;
+    const steps = 100;
     const increment = Math.max(1, Math.floor(targetValue / steps));
     let current = 0;
 

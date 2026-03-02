@@ -12,8 +12,9 @@ interface Star {
   twinkleDelay: number;
 }
 
-export const StarBackground = () => {
+export default function StarBackground() {
   const [stars, setStars] = useState<Star[]>([]);
+  const [isHydrated, setIsHydrated] = useState(false); // for preventing hydration mismatch
 
   useEffect(() => {
     const starCount = 75; // Number of stars
@@ -32,33 +33,30 @@ export const StarBackground = () => {
       });
     }
 
-    const rafId = requestAnimationFrame(() => {
-      setStars(newStars);
-    });
+    setStars(newStars);
+    setIsHydrated(true); // After the stars are set, mark hydration complete
 
-    return () => {
-      cancelAnimationFrame(rafId);
-    };
+    return () => {};
   }, []);
 
   // Return null on server/initial render to avoid hydration mismatch
-  if (stars.length === 0) return null;
+  if (!isHydrated) return null;
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {stars.map((star) => (
         <div
           key={star.id}
-          className="absolute bg-white rounded-full"
+          className="absolute bg-white rounded-full will-change-transform"
           style={{
             left: `${star.left}%`,
             width: `${star.size}px`,
             height: `${star.size}px`,
-            // Combine animations: rise (movement) and twinkle (opacity)
+            // Combined animation using transform for GPU acceleration
             animation: `rise ${star.duration}s linear ${star.delay}s infinite, twinkle ${star.twinkleDuration}s ease-in-out ${star.twinkleDelay}s infinite`,
           }}
         />
       ))}
     </div>
   );
-};
+}

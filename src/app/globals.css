@@ -124,6 +124,28 @@ body {
 .gsap-char{
   will-change: transform, opacity;
 }
+
+/* CSS Keyframes for Animation */
+@keyframes rise {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100vh); /* Move up */
+  }
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .glass-border {
